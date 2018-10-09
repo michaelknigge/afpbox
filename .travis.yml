@@ -11,7 +11,7 @@ before_script:
   - pip install --user codecov
 
 before_install:
-  - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
@@ -20,7 +20,7 @@ env:
   global:
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
    #   via the "travis encrypt" command using the project repo's public key
-   - secure: "YuuEgkGv9KOOLigDvFLJGe8+C0pXsUwyJ0h5mbb8XLFNN+1oud2bok3w6RXLhog8Yb/MmkFKqmA36dNNo2GUAopcXTgez+Eq69HPBCtEPFwULURhI5TOSpxVRe1L7lbuYmB++iLh1sncqDOcWNWNssysMhIEPqi4GqctJGA6nlXudNqk77/XwvLPBr7Nr++t/1TV/aMrMmQMLlGUZoxOsmRvGyco1wmgzeI11ALHQBEI/+C2dD6o719wpZynvOmeiP1CmwlqG2oAR5zHnHsbfznfQrThPryWdmW+3btZSDYcSEHijQI/daqes878vrs+EcJSZ2rtLTwmTUR9KNqrZaKYq3g3B5wuoFcHgEy9/22SrURZz+2RsRk1HJS4t3FccEjC4LNO6UUChmSObLu1JZuStOFfrOZOgHpH9HIojD+iG2nVZkA8hI/SWGxv1UNm2PheVNgVZPca3WH/zYVrIm0d42C6aOgBxgb1F8ejJnKi/fL3UJfpjMIK16LcJv/qf0iUdh+SZTLyY2Ur4G2gLGALg4T03DxAfgmDVGznRu1vnk1P0hA75YAXwyRf8CHgbBjwjHDlZjMKYvaOs0qMelyetZ3cYJn7VzLqfKrDfS4LPr6vY6SOm42RkexnwyogYgNi7oIYKWwjmHS+T+EzjJthQOfyuC7B5ZG49ATwtSY="
+   - secure: "GBWLuXpprgxZ5Zxc48lcS9nNeupAx91HJ6zsoBBgOGg8x7k57ad2BPdPIhFXpAHrXTfmtQyGYWdft4Vxk/trTttm7WMV9N6bQKbc+qFwvlBOF8DsDIyMHoQ/V/NJu9Q4dHxhHl1QGO/EQkp2ARAXQ7n7lqEweSHei6ogLEVSmPIlc/3E11eDWdMmYdlWmm3HwkgAW73Z5vnhaH5nIidxjlpKDaZYRN9fcL3tlnfcDswrQUiN6BoUbOpNyVV7t57ZHhReOfNZdTaxexFX+PDM3OLFzY2mgL9cD/k3jEZBm/4HIJi8O9lNK0pZmAJgONS8bjB1y3d8/TRkH7m5NGHTosZmzN0wKYixiknnUF/cWehNpnS4GzIOChHeHyMpsqWRQE6++KxnjCE5qslosA0nvAYPCK4H9NlybDkdFziga45qht1hgLx7KN0+WKnACxHN328/JuP4kt6dqf2HjEZTkbV3TXvRsvtUKG/gUuqijEVDq+mJatU7FE6s9RlBhxS9zGaOEauqEKF6vpQ2YbWB4l0WPZ9RkSb6KIhCnwNIurnsb5kmJ3+FYXaSQsROOkkOhN3BmGzfhVXx3iww+LRblmKp08DAoTfmnpYuTa6IN6CtpkrqD/yqkffALHx8ZkiMdvwRgHozVU2RFj15KlxHABs1gshOwEWYg/foSM+DhtY="
 
 addons:
   coverity_scan:
