@@ -1,4 +1,4 @@
-# afpbox
+# afpbox [![Build Status](https://travis-ci.org/michaelknigge/afpbox.svg?branch=master)](https://travis-ci.org/michaelknigge/afpbox) [![codecov.io](https://codecov.io/github/michaelknigge/afpbox/coverage.svg?branch=master)](https://codecov.io/github/michaelknigge/afpbox?branch=master) [![Coverity Status](https://scan.coverity.com/projects/10253/badge.svg)](https://scan.coverity.com/projects/10253) [![Download](https://api.bintray.com/packages/michaelknigge/maven/afpbox/images/download.svg) ](https://bintray.com/michaelknigge/maven/afpbox/_latestVersion)
 
 Java library for parsing [AFP](https://en.wikipedia.org/wiki/Advanced_Function_Presentation) printer data streams.
 
