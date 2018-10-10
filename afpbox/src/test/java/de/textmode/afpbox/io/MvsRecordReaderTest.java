@@ -89,6 +89,10 @@ public final class MvsRecordReaderTest extends RecordReaderTest {
      */
     public void testUnexpectedEOF() throws Exception {
         assertEquals(
+                "Unexpected end of stream while reading the second length byte of record starting at offset 0",
+                this.readAndExpectFailure(MvsRecordReader.class, Hex.decodeHex("00".toCharArray())));
+
+        assertEquals(
                 "Unexpected end of stream while reading the RDW (byte 3) of record starting at offset 0",
                 this.readAndExpectFailure(MvsRecordReader.class, Hex.decodeHex("0004".toCharArray())));
 
