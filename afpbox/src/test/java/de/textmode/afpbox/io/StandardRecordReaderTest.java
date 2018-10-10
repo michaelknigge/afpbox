@@ -56,6 +56,15 @@ public final class StandardRecordReaderTest extends RecordReaderTest {
     }
 
     /**
+     * Checks reading a file that does not start with x'5A'.
+     */
+    public void testInvalidFile() throws Exception {
+        assertEquals(
+                "The first record does not start with X'5A'.",
+                this.readAndExpectFailure(Hex.decodeHex("5B".toCharArray())));
+    }
+
+    /**
      * Checks reading a valid file that has "junk" (CRLF) after each record.
      */
     public void testValidFileWithJunkAtEndOfRecord() throws Exception {
