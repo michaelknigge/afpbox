@@ -44,7 +44,7 @@ public final class StandardRecordReaderTest extends RecordReaderTest {
         final byte[] beginPrintFile = Hex.decodeHex("5A0008D3A8A5000000".toCharArray());
         final byte[] beginPage = Hex.decodeHex("5A0010D3A8A5000000F0F0F0F0F0F0F0F1".toCharArray());
 
-        final List<Record> result = this.readAndExpectSuccess(beginPrintFile, beginPage);
+        final List<Record> result = this.readAndExpectSuccess(StandardRecordReader.class, beginPrintFile, beginPage);
 
         assertEquals(2, result.size());
 
@@ -61,7 +61,7 @@ public final class StandardRecordReaderTest extends RecordReaderTest {
     public void testInvalidFile() throws Exception {
         assertEquals(
                 "The first record does not start with X'5A'.",
-                this.readAndExpectFailure(Hex.decodeHex("5B".toCharArray())));
+                this.readAndExpectFailure(StandardRecordReader.class, Hex.decodeHex("5B".toCharArray())));
     }
 
     /**
@@ -72,7 +72,12 @@ public final class StandardRecordReaderTest extends RecordReaderTest {
         final byte[] beginPrintFile = Hex.decodeHex("5A0008D3A8A5000000".toCharArray());
         final byte[] beginPage = Hex.decodeHex("5A0010D3A8A5000000F0F0F0F0F0F0F0F1".toCharArray());
 
-        final List<Record> result = this.readAndExpectSuccess(beginPrintFile, crlf, beginPage, crlf);
+        final List<Record> result = this.readAndExpectSuccess(
+                StandardRecordReader.class,
+                beginPrintFile,
+                crlf,
+                beginPage,
+                crlf);
 
         assertEquals(2, result.size());
 
@@ -89,15 +94,15 @@ public final class StandardRecordReaderTest extends RecordReaderTest {
     public void testUnexpectedEOF() throws Exception {
         assertEquals(
                 "Unexpected end of stream while reading the first length byte of record starting at offset 0",
-                this.readAndExpectFailure(Hex.decodeHex("5A".toCharArray())));
+                this.readAndExpectFailure(StandardRecordReader.class, Hex.decodeHex("5A".toCharArray())));
 
         assertEquals(
                 "Unexpected end of stream while reading the second length byte of record starting at offset 0",
-                this.readAndExpectFailure(Hex.decodeHex("5A00".toCharArray())));
+                this.readAndExpectFailure(StandardRecordReader.class, Hex.decodeHex("5A00".toCharArray())));
 
         assertEquals(
                 "Unexpected end of stream while reading record starting at offset 0",
-                this.readAndExpectFailure(Hex.decodeHex("5A000A".toCharArray())));
+                this.readAndExpectFailure(StandardRecordReader.class, Hex.decodeHex("5A000A".toCharArray())));
     }
 
     /**
@@ -106,10 +111,10 @@ public final class StandardRecordReaderTest extends RecordReaderTest {
     public void testInvalidLength() throws Exception {
         assertEquals(
                 "The length of record at offset 0 is invalid.",
-                this.readAndExpectFailure(Hex.decodeHex("5A0000".toCharArray())));
+                this.readAndExpectFailure(StandardRecordReader.class, Hex.decodeHex("5A0000".toCharArray())));
 
         assertEquals(
                 "The length of record at offset 0 is invalid.",
-                this.readAndExpectFailure(Hex.decodeHex("5A0001".toCharArray())));
+                this.readAndExpectFailure(StandardRecordReader.class, Hex.decodeHex("5A0001".toCharArray())));
     }
 }

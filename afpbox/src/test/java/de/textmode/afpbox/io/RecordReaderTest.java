@@ -19,6 +19,8 @@ package de.textmode.afpbox.io;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,14 +28,19 @@ import junit.framework.TestCase;
 
 abstract class RecordReaderTest extends TestCase {
 
-    protected String readAndExpectFailure(final byte[]... inputBytes) throws IOException {
+    protected String readAndExpectFailure(
+            final Class<? extends RecordReader> clazz,
+            final byte[]... inputBytes) throws Exception {
+
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
         for (final byte[] bytes : inputBytes) {
             baos.write(bytes);
         }
 
         final ByteArrayInputStream is = new ByteArrayInputStream(baos.toByteArray());
-        final StandardRecordReader reader = new StandardRecordReader(is);
+        final Constructor<? extends RecordReader> ctor = clazz.getConstructor(InputStream.class);
+
+        final RecordReader reader = ctor.newInstance(is);
 
         try {
             while (reader.read() != null) {
@@ -46,14 +53,18 @@ abstract class RecordReaderTest extends TestCase {
         }
     }
 
-    protected List<Record> readAndExpectSuccess(final byte[]... inputBytes) throws IOException {
+    protected List<Record> readAndExpectSuccess(
+            final Class<? extends RecordReader> clazz,
+            final byte[]... inputBytes) throws Exception {
+
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
         for (final byte[] bytes : inputBytes) {
             baos.write(bytes);
         }
 
         final ByteArrayInputStream is = new ByteArrayInputStream(baos.toByteArray());
-        final StandardRecordReader reader = new StandardRecordReader(is);
+        final Constructor<? extends RecordReader> ctor = clazz.getConstructor(InputStream.class);
+        final RecordReader reader = ctor.newInstance(is);
         final List<Record> result = new ArrayList<>();
         Record record;
 
