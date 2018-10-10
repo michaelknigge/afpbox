@@ -64,6 +64,25 @@ public final class MvsRecordReaderTest extends RecordReaderTest {
     }
 
     /**
+     * Checks reading a "empty" record.
+     */
+    public void testEmptyRecord() throws Exception {
+
+        final List<Record> result = this.readAndExpectSuccess(
+                MvsRecordReader.class,
+                Hex.decodeHex("00040000".toCharArray()),
+                Hex.decodeHex("00040000".toCharArray()));
+
+        assertEquals(2, result.size());
+
+        assertEquals(0, result.get(0).getRecord().length);
+        assertEquals(0, result.get(0).getOffset());
+
+        assertEquals(0, result.get(1).getRecord().length);
+        assertEquals(4, result.get(1).getOffset());
+    }
+
+    /**
      * Checks reading a file that does not start with x'5A'.
      */
     public void testInvalidRecordDescriptorWord() throws Exception {
@@ -82,6 +101,10 @@ public final class MvsRecordReaderTest extends RecordReaderTest {
         assertEquals(
                 "The length of record at offset 0 is invalid.",
                 this.readAndExpectFailure(MvsRecordReader.class, Hex.decodeHex("00030000".toCharArray())));
+
+        assertEquals(
+                "The length of record at offset 0 is invalid.",
+                this.readAndExpectFailure(MvsRecordReader.class, Hex.decodeHex("7FF90000".toCharArray())));
     }
 
     /**
