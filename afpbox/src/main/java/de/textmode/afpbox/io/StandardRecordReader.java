@@ -91,10 +91,6 @@ public final class StandardRecordReader implements RecordReader {
 
         this.offset += length;
 
-        // TODO: support Structured Field Introducer Extension
-        // TODO: support Structured Field Segmentation
-        // TODO: support Structured Field Padding
-
         return result;
     }
 
