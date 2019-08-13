@@ -61,6 +61,10 @@ subprojects {
         configFile = new File(rootDir, "config/checkstyle.xml")
     }
 
+    findbugs {
+        excludeFilter = file("$rootProject.projectDir/config/excludeFilter.xml")
+    }
+
     jacocoTestReport {
         reports {
             xml.enabled = true

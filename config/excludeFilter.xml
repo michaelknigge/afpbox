@@ -1,0 +1,11 @@
+<FindBugsFilter>
+  <Match>
+    <Class name="de.textmode.afpbox.io.Record" />
+    <Method name="getData" />
+    <Bug pattern="EI_EXPOSE_REP" />
+  </Match>
+  <Match>
+    <Class name="de.textmode.afpbox.io.Record" />
+    <Bug pattern="EI_EXPOSE_REP2" />
+  </Match>
+</FindBugsFilter>
