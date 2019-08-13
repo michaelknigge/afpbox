@@ -56,10 +56,10 @@ public final class MvsRecordReaderTest extends RecordReaderTest {
 
         assertEquals(2, result.size());
 
-        assertTrue(Arrays.equals(beginPrintFile, result.get(0).getRecord()));
+        assertTrue(Arrays.equals(beginPrintFile, result.get(0).getData()));
         assertEquals(0, result.get(0).getOffset());
 
-        assertTrue(Arrays.equals(beginPage, result.get(1).getRecord()));
+        assertTrue(Arrays.equals(beginPage, result.get(1).getData()));
         assertEquals(13, result.get(1).getOffset());
     }
 
@@ -75,10 +75,10 @@ public final class MvsRecordReaderTest extends RecordReaderTest {
 
         assertEquals(2, result.size());
 
-        assertEquals(0, result.get(0).getRecord().length);
+        assertEquals(0, result.get(0).getData().length);
         assertEquals(0, result.get(0).getOffset());
 
-        assertEquals(0, result.get(1).getRecord().length);
+        assertEquals(0, result.get(1).getData().length);
         assertEquals(4, result.get(1).getOffset());
     }
 

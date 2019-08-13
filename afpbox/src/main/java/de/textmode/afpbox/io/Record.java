@@ -24,17 +24,17 @@ import java.util.Arrays;
  */
 public final class Record {
 
-    private final byte[] record;
+    private final byte[] data;
     private final long offset;
 
     /**
      * Constructor of a {@link Record}.
      *
-     * @param record the raw data of the data record.
+     * @param data the raw data of the data record.
      * @param offset the offset measured from the beginning of the stream.
      */
-    Record(final byte[] record, final long offset) {
-        this.record = record;
+    public Record(final byte[] data, final long offset) {
+        this.data = data;
         this.offset = offset;
     }
 
@@ -43,8 +43,8 @@ public final class Record {
      *
      * @return the raw record.
      */
-    byte[] getRecord() {
-        return this.record;
+    public byte[] getData() {
+        return this.data;
     }
 
     /**
@@ -52,20 +52,20 @@ public final class Record {
      *
      * @return the offset measured from the beginning of the stream.
      */
-    long getOffset() {
+    public long getOffset() {
         return this.offset;
     }
 
     @Override
     public int hashCode() {
-        return Long.hashCode(this.offset) ^ Arrays.hashCode(this.record);
+        return Long.hashCode(this.offset) ^ Arrays.hashCode(this.data);
     }
 
     @Override
     public boolean equals(final Object o) {
         if (o instanceof Record) {
             final Record other = (Record) o;
-            return other.offset == this.offset && Arrays.equals(other.record, this.record);
+            return other.offset == this.offset && Arrays.equals(other.data, this.data);
         } else {
             return false;
         }

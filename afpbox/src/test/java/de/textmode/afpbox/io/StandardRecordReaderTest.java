@@ -48,10 +48,10 @@ public final class StandardRecordReaderTest extends RecordReaderTest {
 
         assertEquals(2, result.size());
 
-        assertTrue(Arrays.equals(beginPrintFile, result.get(0).getRecord()));
+        assertTrue(Arrays.equals(beginPrintFile, result.get(0).getData()));
         assertEquals(0, result.get(0).getOffset());
 
-        assertTrue(Arrays.equals(beginPage, result.get(1).getRecord()));
+        assertTrue(Arrays.equals(beginPage, result.get(1).getData()));
         assertEquals(10, result.get(1).getOffset());
     }
 
@@ -81,10 +81,10 @@ public final class StandardRecordReaderTest extends RecordReaderTest {
 
         assertEquals(2, result.size());
 
-        assertTrue(Arrays.equals(beginPrintFile, result.get(0).getRecord()));
+        assertTrue(Arrays.equals(beginPrintFile, result.get(0).getData()));
         assertEquals(0, result.get(0).getOffset());
 
-        assertTrue(Arrays.equals(beginPage, result.get(1).getRecord()));
+        assertTrue(Arrays.equals(beginPage, result.get(1).getData()));
         assertEquals(12, result.get(1).getOffset());
     }
 

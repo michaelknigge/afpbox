@@ -35,7 +35,7 @@ public final class RecordTest extends TestCase {
         final Record record = new Record(beginPrintFile, 123);
 
         assertEquals(123, record.getOffset());
-        assertTrue(Arrays.equals(beginPrintFile, record.getRecord()));
+        assertTrue(Arrays.equals(beginPrintFile, record.getData()));
     }
 
     /**
