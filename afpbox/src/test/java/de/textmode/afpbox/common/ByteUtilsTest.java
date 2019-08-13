@@ -16,6 +16,8 @@ package de.textmode.afpbox.common;
  * limitations under the License.
  */
 
+import java.security.InvalidParameterException;
+
 import junit.framework.TestCase;
 
 /**
@@ -42,6 +44,13 @@ public final class ByteUtilsTest extends TestCase {
         // Note... toInteger() is always UNSIGNED!
         assertEquals(ByteUtils.toInteger(src, 5, 1), 0x80);
         assertEquals(ByteUtils.toInteger(src, 6, 1), 0xFF);
+
+        try {
+            ByteUtils.toInteger(src, 0, 5);
+            fail("Should fail because tried to parse 5 bytes (max 4 allowed)");
+        } catch (final InvalidParameterException e) {
+            assertTrue(e.getMessage().contains("Invalid length"));
+        }
     }
 
 }
