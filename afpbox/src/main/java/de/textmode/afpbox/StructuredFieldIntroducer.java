@@ -50,6 +50,11 @@ public final class StructuredFieldIntroducer {
         // Identifier. So we determine them here to get a better performance and more readable code...
         final byte[] data = record.getData();
 
+        // We assume that the raw record data starts with the control character 0x5A. Also note that
+        // the backed raw record data may be longer than the structured field! This may happen under
+        // z/OS if reading from a MVS Data Set with a fixed record format...
+        assert data[0] == 0x5A;
+
         this.flagByte = data[OFFSET_TO_FLAG_BYTE];
         this.sfid = ByteUtils.toInteger(data, OFFSET_TO_SFID, 3);
     }
@@ -112,10 +117,12 @@ public final class StructuredFieldIntroducer {
         final int paddingLength;
 
         final byte[] data = this.record.getData();
-        final int lastByte = ByteUtils.toInteger(data, data.length - 1, 1);
+        final int fieldLength = this.getStructuredFieldLength();
+
+        final int lastByte = ByteUtils.toInteger(data, fieldLength, 1);
 
         if (lastByte == 0x00) {
-            paddingLength = ByteUtils.toInteger(data, data.length - 3, 2);
+            paddingLength = ByteUtils.toInteger(data, fieldLength - 2, 2);
 
             if (paddingLength < 3 || paddingLength > 32759) {
                 throw new AfpException(
@@ -150,5 +157,21 @@ public final class StructuredFieldIntroducer {
         }
 
         return STRUCTURED_FIELD_INTRODUCER_LENGTH + extensionLength;
+    }
+
+    /**
+     * Returns the length of the Structured Field (this does not include the control character 0x5A).
+     *
+     * @return length of the Structured Field.
+     *
+     * @throws AfpException if the record specifies an invalid length.
+     */
+    public int getStructuredFieldLength() throws AfpException {
+        final int length = ByteUtils.toInteger(this.record.getData(), 1, 2);
+        if (length < 8 || length > 32767) {
+            throw new AfpException("Record at offset " + this.record.getOffset() + " specifies an invalid structurd field length: " + length);
+        }
+
+        return length;
     }
 }
