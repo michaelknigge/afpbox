@@ -31,6 +31,185 @@ dependencies {
 
 **TODO: Add usage sample here**
 
+# Structured Fields
+The following table shows which Structured Fields are currently supported (*"supported"* means
+that afpbox can parse the Stuctured Field and create a specific Java object for it).
+
+Acronym| Identifier| Structured Field Name                  | Supported
+-------|-----------|----------------------------------------|----------
+BAG    | X'D3A8C9' | Begin Active Environment Group         | :x:
+BBC    | X'D3A8EB' | Begin Bar Code Object                  | :x:
+BDA    | X'D3EEEB' | Bar Code Data                          | :x:
+BDD    | X'D3A6EB' | Bar Code Data Descriptor               | :x:
+BDG    | X'D3A8C4' | Begin Document Environment Group       | :x:
+BDI    | X'D3A8A7' | Begin Document Index                   | :x:
+BDT    | X'D3A8A8' | Begin Document                         | :x:
+BFG    | X'D3A8C5' | Begin Form Environment Group           | :x:
+BFM    | X'D3A8CD' | Begin Form Map                         | :x:
+BGR    | X'D3A8BB' | Begin Graphics Object                  | :x:
+BII    | X'D3A87B' | Begin IM Image                         | :x:
+BIM    | X'D3A8FB' | Begin Image Object                     | :x:
+BMM    | X'D3A8CC' | Begin Medium Map                       | :x:
+BMO    | X'D3A8DF' | Begin Overlay                          | :x:
+BNG    | X'D3A8AD' | Begin Named Page Group                 | :x:
+BOC    | X'D3A892' | Begin Object Container                 | :x:
+BOG    | X'D3A8C7' | Begin Object Environment Group         | :x:
+BPF    | X'D3A8A5' | Begin Print File                       | :x:
+BPG    | X'D3A8AF' | Begin Page                             | :x:
+BPS    | X'D3A85F' | Begin Page Segment                     | :x:
+BPT    | X'D3A89B' | Begin Presentation Text Object         | :x:
+BRG    | X'D3A8C6' | Begin Resource Group                   | :x:
+BRS    | X'D3A8CE' | Begin Resource                         | :x:
+BSG    | X'D3A8D9' | Begin Resource Environment Group       | :x:
+CDD    | X'D3A692' | Container Data Descriptor              | :x:
+CTC    | X'D3A79B' | Composed Text Control                  | :x:
+EAG    | X'D3A9C9' | End Active Environment Group           | :x:
+EBC    | X'D3A9EB' | End Bar Code Object                    | :x:
+EDG    | X'D3A9C4' | End Document Environment Group         | :x:
+EDI    | X'D3A9A7' | End Document Index                     | :x:
+EDT    | X'D3A9A8' | End Document                           | :x:
+EFG    | X'D3A9C5' | End Form Environment Group             | :x:
+EFM    | X'D3A9CD' | End Form Map                           | :x:
+EGR    | X'D3A9BB' | End Graphics Object                    | :x:
+EII    | X'D3A97B' | End IM Image                           | :x:
+EIM    | X'D3A9FB' | End Image Object                       | :x:
+EMM    | X'D3A9CC' | End Medium Map                         | :x:
+EMO    | X'D3A9DF' | End Overlay                            | :x:
+ENG    | X'D3A9AD' | End Named Page Group                   | :x:
+EOC    | X'D3A992' | End Object Container                   | :x:
+EOG    | X'D3A9C7' | End Object Environment Group           | :x:
+EPF    | X'D3A9A5' | End Print File                         | :x:
+EPG    | X'D3A9AF' | End Page                               | :x:
+EPS    | X'D3A95F' | End Page Segment                       | :x:
+EPT    | X'D3A99B' | End Presentation Text Object           | :x:
+ERG    | X'D3A9C6' | End Resource Group                     | :x:
+ERS    | X'D3A9CE' | End Resource                           | :x:
+ESG    | X'D3A9D9' | End Resource Environment Group         | :x:
+FGD    | X'D3A6C5' | Form Environment Group Descriptor      | :x:
+GAD    | X'D3EEBB' | Graphics Data                          | :x:
+GDD    | X'D3A6BB' | Graphics Data Descriptor               | :x:
+ICP    | X'D3AC7B' | IM Image Cell Position                 | :x:
+IDD    | X'D3A6FB' | Image Data Descriptor                  | :x:
+IEL    | X'D3B2A7' | Index Element                          | :x:
+IID    | X'D3A67B' | Image Input Descriptor                 | :x:
+IMM    | X'D3ABCC' | Invoke Medium Map                      | :x:
+IOB    | X'D3AFC3' | Include Object                         | :x:
+IOC    | X'D3A77B' | IM Image Output Control                | :x:
+IPD    | X'D3EEFB' | Image Picture Data                     | :x:
+IPG    | X'D3AFAF' | Include Page                           | :x:
+IPO    | X'D3AFD8' | Include Page Overlay                   | :x:
+IPS    | X'D3AF5F' | Include Page Segment                   | :x:
+IRD    | X'D3EE7B' | IM Image Raster Data                   | :x:
+LLE    | X'D3B490' | Link Logical Element                   | :x:
+MBC    | X'D3ABEB' | Map Bar Code Object                    | :x:
+MCC    | X'D3A288' | Medium Copy Count                      | :x:
+MCD    | X'D3AB92' | Map Container Data                     | :x:
+MCF    | X'D3AB8A' | Map Coded Font                         | :x:
+MCF-1  | X'D3B18A' | Map Coded Font Format-1                | :x:
+MDD    | X'D3A688' | Medium Descriptor                      | :x:
+MDR    | X'D3ABC3' | Map Data Resource                      | :x:
+MFC    | X'D3A088' | Medium Finishing Control               | :x:
+MGO    | X'D3ABBB' | Map Graphics Object                    | :x:
+MIO    | X'D3ABFB' | Map Image Object                       | :x:
+MMC    | X'D3A788' | Medium Modification Control            | :x:
+MMD    | X'D3ABCD' | Map Media Destination                  | :x:
+MMO    | X'D3B1DF' | Map Medium Overlay                     | :x:
+MMT    | X'D3AB88' | Map Media Type                         | :x:
+MPG    | X'D3ABAF' | Map Page                               | :x:
+MPO    | X'D3ABD8' | Map Page Overlay                       | :x:
+MPS    | X'D3B15F' | Map Page Segment                       | :x:
+MPT    | X'D3AB9B' | Map Presentation Text                  | :x:
+MSU    | X'D3ABEA' | Map Suppression                        | :x:
+NOP    | X'D3EEEE' | No Operation                           | :x:
+OBD    | X'D3A66B' | Object Area Descriptor                 | :x:
+OBP    | X'D3AC6B' | Object Area Position                   | :x:
+OCD    | X'D3EE92' | Object Container Data                  | :x:
+PEC    | X'D3A7A8' | Presentation Environment Control       | :x:
+PFC    | X'D3B288' | Presentation Fidelity Control          | :x:
+PGD    | X'D3A6AF' | Page Descriptor                        | :x:
+PGP    | X'D3B1AF' | Page Position                          | :x:
+PGP-1  | X'D3ACAF' | Page Position Format-1                 | :x:
+PMC    | X'D3A7AF' | Page Modification Control              | :x:
+PPO    | X'D3ADC3' | Preprocess Presentation Object         | :x:
+PTD    | X'D3B19B' | Presentation Text Data Descriptor      | :x:
+PTD-1  | X'D3A69B' | Presentation Text Descriptor Format-1  | :x:
+PTX    | X'D3EE9B' | Presentation Text Data                 | :x:
+TLE    | X'D3A090' | Tag Logical Element                    | :x:
+
+# Triplets
+The following table shows the Triplets and the current status of the corresponding support of the Triplet 
+(*"supported"* means that afobox can parse the Triplet and create a specific Java object for it).
+
+ID    | Name                                                | Supported
+------|-----------------------------------------------------|-------------------
+X'4D' | Area Definition                                     | :x:
+X'80' | Attribute Qualifier                                 | :x:
+X'36' | Attribute Value                                     | :x:
+X'26' | Character Rotation                                  | :x:
+X'96' | CMR Tag Fidelity                                    | :x:
+X'01' | Coded Graphic Character Set Global ID               | :x:
+X'75' | Color Fidelity                                      | :x:
+X'91' | Color Management Resource Descriptor                | :x:
+X'4E' | Color Specification                                 | :x:
+X'65' | Comment                                             | :x:
+X'8B' | Data-Object Font Descriptor                         | :x:
+X'43' | Descriptor Position                                 | :x:
+X'97' | Device Appearance                                   | :x:
+X'50' | Encoding Scheme ID                                  | :x:
+X'22' | Extended Resource Local ID                          | :x:
+X'88' | Finishing Fidelity                                  | :x:
+X'85' | Finishing Operation                                 | :x:
+X'20' | Font Coded Graphic Character Set Global Identifier  | :x:
+X'1F' | Font Descriptor Specification                       | :x:
+X'78' | Font Fidelity                                       | :x:
+X'5D' | Font Horizontal Scale Factor                        | :x:
+X'84' | Font Resolution and Metric Technology               | :x:
+X'02' | Fully Qualified Name                                | :x:
+X'9A' | Image Resolution                                    | :x:
+X'73' | IMM Insertion (R)                                   | :x:
+X'9D' | Keep Group Together                                 | :x:
+X'27' | Line Data Object Position Migration (R)             | :x:
+X'62' | Local Date and Time Stamp                           | :x:
+X'8C' | Locale Selector                                     | :x:
+X'04' | Mapping Option                                      | :x:
+X'45' | Media Eject Control                                 | :x:
+X'87' | Media Fidelity                                      | :x:
+X'56' | Medium Map Page Number                              | :x:
+X'68' | Medium Orientation                                  | :x:
+X'8F' | MO:DCA Function Set                                 | :x:
+X'18' | MO:DCA Interchange Set                              | :x:
+X'4B' | Object Area Measurement Units                       | :x:
+X'4C' | Object Area Size                                    | :x:
+X'57' | Object Byte Extent                                  | :x:
+X'2D' | Object Byte Offset                                  | :x:
+X'63' | Object Checksum (R)                                 | :x:
+X'10' | Object Classification                               | :x:
+X'9C' | Object Container Presentation Space Size            | :x:
+X'5E' | Object Count                                        | :x:
+X'21' | Object Function Set Specification (R)               | :x:
+X'5A' | Object Offset                                       | :x:
+X'64' | Object Origin Identifier (R)                        | :x:
+X'59' | Object Structured Field Extent                      | :x:
+X'58' | Object Structured Field Offset                      | :x:
+X'46' | Page Overlay Conditional Processing (R)             | :x:
+X'81' | Page Position Information                           | :x:
+X'82' | Parameter Value                                     | :x:
+X'83' | Presentation Control                                | :x:
+X'71' | Presentation Space Mixing Rules                     | :x:
+X'70' | Presentation Space Reset Mixing                     | :x:
+X'95' | Rendering Intent                                    | :x:
+X'24' | Resource Local ID                                   | :x:
+X'6C' | Resource Object Include                             | :x:
+X'21' | Resource Object Type                                | :x:
+X'25' | Resource Section Number                             | :x:
+X'47' | Resource Usage Attribute (R)                        | :x:
+X'86' | Text Fidelity                                       | :x:
+X'1D' | Text Orientation (R)                                | :x:
+X'74' | Toner Saver                                         | :x:
+X'FF' | Triplet Extender                                    | :x:
+X'72' | Universal Date and Time Stamp                       | :x:
+X'8E' | UP3i Finishing Operation                            | :x:
+
 # Contribute
 If you want to contribute to afpbox, you're welcome. But please make sure that your changes keep the quality of afpbox at least at it's current level. So please make sure that your contributions comply with the afpbox coding conventions (formatting etc.) and that your contributions are validated by JUnit tests.
 
