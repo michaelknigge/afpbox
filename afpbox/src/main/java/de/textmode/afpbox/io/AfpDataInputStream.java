@@ -1,5 +1,21 @@
 package de.textmode.afpbox.io;
 
+/*
+ * Copyright 2018 Michael Knigge
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 
@@ -43,6 +59,7 @@ public final class AfpDataInputStream {
     public AfpDataInputStream(final byte[] data, final int startOffset, final int paddingBytesToIgnore) {
         this.data = data;
         this.offset = startOffset;
+        // Hmmmmmm... will this work under z/OS for RECFM=FB???? Maybe better to pass off + len!?
         this.bytesLeft = data.length - startOffset - paddingBytesToIgnore;
     }
 
@@ -84,6 +101,22 @@ public final class AfpDataInputStream {
     }
 
     /**
+     * Reads and returns all remaining bytes.
+     *
+     * @return the remaining bytes. If no more bytes are available an empty byte array will be returned.
+     */
+    public byte[] readRemainingBytes() {
+
+        final byte[] result = new byte[this.bytesLeft];
+        System.arraycopy(this.data, this.offset, result, 0, this.bytesLeft);
+
+        this.offset += this.bytesLeft;
+        this.bytesLeft -= this.bytesLeft;
+
+        return result;
+    }
+
+    /**
      * Reads and returns some bytes and treads the bytes as an EBCDIC-International encoded String.
      *
      * @return the String decoded from the read bytes.
@@ -118,7 +151,7 @@ public final class AfpDataInputStream {
 
         return result;
     }
-    
+
     /**
      * Reads and returns one input byte. The byte is treated as an unsigned value.
      *

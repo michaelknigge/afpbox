@@ -1,8 +1,5 @@
 package de.textmode.afpbox.io;
 
-import java.nio.charset.Charset;
-import java.util.Arrays;
-
 /*
  * Copyright 2018 Michael Knigge
  *
@@ -18,6 +15,9 @@ import java.util.Arrays;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import java.nio.charset.Charset;
+import java.util.Arrays;
 
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
@@ -144,7 +144,7 @@ public final class AfpDataInputStreamTest extends TestCase {
      */
     public void testReadMultipleValues() throws Exception {
         final AfpDataInputStream is = new AfpDataInputStream(
-                Hex.decodeHex("01000100000100000001F4F5F663FCF1F2F3".toCharArray()), 0, 0);
+                Hex.decodeHex("01000100000100000001F4F5F663FCF1F2F3010203".toCharArray()), 0, 0);
 
         assertEquals(1, is.readUnsignedByte());
         assertEquals(1, is.readUnsignedInteger16());
@@ -153,6 +153,9 @@ public final class AfpDataInputStreamTest extends TestCase {
         assertEquals("456", is.readEbcdicString(3));
         assertEquals("[]", is.readString(2, Charset.forName("ibm-273")));
         assertTrue(Arrays.equals(Hex.decodeHex("F1F2F3".toCharArray()), is.readBytes(3)));
+
+        assertTrue(Arrays.equals(Hex.decodeHex("010203".toCharArray()), is.readRemainingBytes()));
+        assertEquals(0, is.readRemainingBytes().length); // will return an empty array if no bytes left to read!
 
         // All bytes are consumed - reading even one more byte should throw an exception....
         try {
