@@ -19,8 +19,11 @@ package de.textmode.afpbox;
 import java.io.EOFException;
 import java.io.IOException;
 
+import de.textmode.afpbox.io.AfpDataInputStream;
 import de.textmode.afpbox.io.Record;
 import de.textmode.afpbox.io.RecordReader;
+import de.textmode.afpbox.structuredfield.StructuredFieldFactory;
+import de.textmode.afpbox.structuredfield.StructuredFieldIntroducer;
 
 /**
  * The {@link AfpParser} reads AFP records using a {@link RecordReader} and interprets
@@ -43,7 +46,7 @@ public final class AfpParser {
     }
 
     /**
-     * Reads and parses the AFP records. For read record the {@link RecordHandler} is invoked.
+     * Reads and parses the AFP records. For each read record the {@link RecordHandler} is invoked.
      *
      * @throws EOFException if the end of the stream was reached unexpectedly.
      * @throws IOException if an I/O error occurs.
@@ -61,9 +64,14 @@ public final class AfpParser {
                 } else {
                     final StructuredFieldIntroducer sfi = new StructuredFieldIntroducer(record);
                     if (this.handler.handleStructuredFieldIntroducer(sfi)) {
-                        // TODO: Parse and create a StructredField (note the padding bytes and/or sfi-extension!
-                        // TDDO: invoke this.handler.handleStructuredField
-                        // this.handler.handleStructuredField(sf);
+
+                        final AfpDataInputStream is = new AfpDataInputStream(
+                                data,
+                                sfi.getStructuredFieldIntroducerLength(),
+                                sfi.getPaddingDataLength()); // TODO: Better length of SF!
+
+                        this.handler.handleStructuredField(
+                                StructuredFieldFactory.createFor(sfi.getStructuredFieldIdentifier(), is));
                     }
                 }
             }

@@ -17,6 +17,8 @@ package de.textmode.afpbox;
  */
 
 import de.textmode.afpbox.io.Record;
+import de.textmode.afpbox.structuredfield.StructuredField;
+import de.textmode.afpbox.structuredfield.StructuredFieldIntroducer;
 
 /**
  * The {@link RecordHandler} is responsible for processing the read records.

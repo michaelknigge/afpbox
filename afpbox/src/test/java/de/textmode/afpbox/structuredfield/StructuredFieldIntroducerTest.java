@@ -1,4 +1,4 @@
-package de.textmode.afpbox;
+package de.textmode.afpbox.structuredfield;
 
 /*
  * Copyright 2019 Michael Knigge
@@ -18,8 +18,10 @@ package de.textmode.afpbox;
 
 import org.apache.commons.codec.binary.Hex;
 
+import de.textmode.afpbox.AfpException;
 import de.textmode.afpbox.common.StructuredFieldIdentifier;
 import de.textmode.afpbox.io.Record;
+import de.textmode.afpbox.structuredfield.StructuredFieldIntroducer;
 import junit.framework.TestCase;
 
 public final class StructuredFieldIntroducerTest extends TestCase {

@@ -1,7 +1,7 @@
-package de.textmode.afpbox;
+package de.textmode.afpbox.structuredfield;
 
 /*
- * Copyright 2019 Michael Knigge
+ * Copyright 2018 Michael Knigge
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,7 @@ package de.textmode.afpbox;
  * limitations under the License.
  */
 
+import de.textmode.afpbox.AfpException;
 import de.textmode.afpbox.common.ByteUtils;
 import de.textmode.afpbox.io.Record;
 
@@ -43,7 +44,7 @@ public final class StructuredFieldIntroducer {
      *
      * @param record   the read {@link Record}.
      */
-    StructuredFieldIntroducer(final Record record) {
+    public StructuredFieldIntroducer(final Record record) {
         this.record = record;
 
         // It is very very likely that a method is called that requires the flag byte or the Structured Field

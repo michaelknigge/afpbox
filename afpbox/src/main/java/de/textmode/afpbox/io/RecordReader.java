@@ -27,7 +27,7 @@ public interface RecordReader {
     /**
      * Reads and returns the next data record. If no more records are available <code>null</code>
      * is returned. The read record will start with the control character (x'5A' for AFP), so leading
-     * length bytes are removed. Trailing data (junk) is also removed.
+     * length bytes are removed.
      *
      * @return the read record or <code>null</code> if no more record is available.
      *
