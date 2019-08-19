@@ -114,7 +114,7 @@ public final class AfpDataInputStream {
         System.arraycopy(this.data, this.offset, result, 0, this.bytesLeft);
 
         this.offset += this.bytesLeft;
-        this.bytesLeft -= this.bytesLeft;
+        this.bytesLeft = 0;
 
         return result;
     }

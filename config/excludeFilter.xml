@@ -8,4 +8,17 @@
     <Class name="de.textmode.afpbox.io.Record" />
     <Bug pattern="EI_EXPOSE_REP2" />
   </Match>
+  <Match>
+    <Class name="de.textmode.afpbox.io.AfpDataInputStream" />
+    <Bug pattern="EI_EXPOSE_REP2" />
+  </Match>
+  <Match>
+    <Class name="de.textmode.afpbox.structuredfield.StructuredFieldBase" />
+    <Bug pattern="EI_EXPOSE_REP2" />
+  </Match>
+  <Match>
+    <Class name="de.textmode.afpbox.structuredfield.StructuredFieldBase" />
+    <Method name="getData" />
+    <Bug pattern="EI_EXPOSE_REP" />
+  </Match>
 </FindBugsFilter>
