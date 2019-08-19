@@ -37,8 +37,9 @@ import java.nio.charset.Charset;
 import de.textmode.afpbox.AfpException;
 
 /**
- * The {@link AfpDataInputStream} is not really an DataInputStream, but it follows the concept of the DataInputStream. It provides
- * methods for reading native data types and data types specific for AFP.
+ * The {@link AfpDataInputStream} is not really an DataInputStream, but it follows the
+ * concept of the DataInputStream. It provides methods for reading native data types and
+ * data types specific for AFP.
  */
 public final class AfpDataInputStream {
 
@@ -59,13 +60,13 @@ public final class AfpDataInputStream {
     public AfpDataInputStream(final byte[] data, final int startOffset, final int paddingBytesToIgnore) {
         this.data = data;
         this.offset = startOffset;
-        // Hmmmmmm... will this work under z/OS for RECFM=FB???? Maybe better to pass off + len!?
+        // TODO: Hmmmmmm... will this work under z/OS for RECFM=FB???? Maybe better to pass off + len!?
         this.bytesLeft = data.length - startOffset - paddingBytesToIgnore;
     }
 
     /**
-     * Checks if enough bytes are available to read. If not an {@link AfpException} is thrown with information that may help the
-     * user to validate the AFP structured field.
+     * Checks if enough bytes are available to read. If not an {@link AfpException} is thrown with
+     * information that may help the user to validate the AFP structured field.
      *
      * @param length the required amount of bytes
      *
@@ -74,15 +75,17 @@ public final class AfpDataInputStream {
     private void checkForAvailableBytes(final int length) throws AfpException {
         if (length > this.bytesLeft) {
             throw new AfpException(
-                    "Tried to parse " + length +
-                    " bytes at offset " + this.offset +
-                    " but there are only " + this.bytesLeft +
-                    " bytes left to parse. Maybe the structured field is truncated.");
+                    "Tried to parse " + length
+                    + " bytes at offset " + this.offset
+                    + " but there are only " + this.bytesLeft
+                    + " bytes left to parse. Maybe the structured field is truncated.");
         }
     }
 
     /**
      * Reads and returns some bytes.
+     *
+     * @param length how many bytes should be read and returned
      *
      * @return the requested amount of bytes read.
      *
@@ -119,6 +122,8 @@ public final class AfpDataInputStream {
     /**
      * Reads and returns some bytes and treads the bytes as an EBCDIC-International encoded String.
      *
+     * @param length length of the string
+     *
      * @return the String decoded from the read bytes.
      *
      * @throws AfpException if there are not enough bytes left to read.
@@ -136,6 +141,9 @@ public final class AfpDataInputStream {
 
     /**
      * Reads and returns some bytes and treads the bytes as an encoded single byte character String.
+     *
+     * @param length length of the string
+     * @param charset charset to be used for decoding the bytes
      *
      * @return the String decoded from the read bytes.
      *
@@ -235,9 +243,9 @@ public final class AfpDataInputStream {
         this.checkForAvailableBytes(3);
 
         final int result =
-                ((this.data[this.offset] & 0xFF) << 16) |
-                ((this.data[this.offset + 1] & 0xFF) << 8) |
-                (this.data[this.offset + 2] & 0xFF);
+                ((this.data[this.offset] & 0xFF) << 16)
+                | ((this.data[this.offset + 1] & 0xFF) << 8)
+                | (this.data[this.offset + 2] & 0xFF);
 
         this.offset += 3;
         this.bytesLeft -= 3;
@@ -256,9 +264,9 @@ public final class AfpDataInputStream {
         this.checkForAvailableBytes(3);
 
         final int result =
-                (this.data[this.offset] << 16) |
-                ((this.data[this.offset + 1] & 0xFF) << 8) |
-                (this.data[this.offset + 2] & 0xFF);
+                (this.data[this.offset] << 16)
+                | ((this.data[this.offset + 1] & 0xFF) << 8)
+                | (this.data[this.offset + 2] & 0xFF);
 
         this.offset += 3;
         this.bytesLeft -= 3;
@@ -277,10 +285,10 @@ public final class AfpDataInputStream {
         this.checkForAvailableBytes(4);
 
         final long result =
-                ((long) (this.data[this.offset] & 0xFF) << 24) |
-                (long) (this.data[this.offset + 1] & 0xFF) << 16 |
-                (long) (this.data[this.offset + 2] & 0xFF) << 8 |
-                (long) this.data[this.offset + 3] & 0xFF;
+                ((long) (this.data[this.offset] & 0xFF) << 24)
+                | (long) (this.data[this.offset + 1] & 0xFF) << 16
+                | (long) (this.data[this.offset + 2] & 0xFF) << 8
+                | (long) this.data[this.offset + 3] & 0xFF;
 
         this.offset += 4;
         this.bytesLeft -= 4;
@@ -299,10 +307,10 @@ public final class AfpDataInputStream {
         this.checkForAvailableBytes(4);
 
         final int result =
-                (this.data[this.offset] << 24) |
-                ((this.data[this.offset + 1] & 0xFF) << 16) |
-                ((this.data[this.offset + 2] & 0xFF) << 8) |
-                (this.data[this.offset + 3] & 0xFF);
+                (this.data[this.offset] << 24)
+                | ((this.data[this.offset + 1] & 0xFF) << 16)
+                | ((this.data[this.offset + 2] & 0xFF) << 8)
+                | (this.data[this.offset + 3] & 0xFF);
 
         this.offset += 4;
         this.bytesLeft -= 4;

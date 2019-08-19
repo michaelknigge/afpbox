@@ -70,6 +70,8 @@ public final class AfpParser {
                                 sfi.getStructuredFieldIntroducerLength(),
                                 sfi.getPaddingDataLength()); // TODO: Better length of SF!
 
+                        // TODO: create a FaultyStructuredField if an AfpException occurs...
+                        // TODO: maybe extend the handler for a "handleFaultyStructuredField" operation
                         this.handler.handleStructuredField(
                                 StructuredFieldFactory.createFor(sfi.getStructuredFieldIdentifier(), is));
                     }

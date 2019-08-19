@@ -8,7 +8,7 @@ public abstract class StructuredFieldBase implements StructuredField {
     private final byte[] data;
 
     /**
-     * The constructor just stores the raw data of the Structured Field
+     * The constructor just stores the raw data of the Structured Field.
      *
      * @param data the raw data of the Structured Field
      */

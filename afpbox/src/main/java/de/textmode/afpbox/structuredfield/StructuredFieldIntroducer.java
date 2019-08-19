@@ -170,7 +170,9 @@ public final class StructuredFieldIntroducer {
     public int getStructuredFieldLength() throws AfpException {
         final int length = ByteUtils.toInteger(this.record.getData(), 1, 2);
         if (length < 8 || length > 32767) {
-            throw new AfpException("Record at offset " + this.record.getOffset() + " specifies an invalid structurd field length: " + length);
+            throw new AfpException(
+                    "Record at offset " + this.record.getOffset() 
+                    + " specifies an invalid structurd field length: " + length);
         }
 
         return length;

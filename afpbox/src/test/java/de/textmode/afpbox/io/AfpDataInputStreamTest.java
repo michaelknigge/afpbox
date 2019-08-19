@@ -140,7 +140,7 @@ public final class AfpDataInputStreamTest extends TestCase {
     }
 
     /**
-     * Checks reading multiple values
+     * Checks reading multiple values.
      */
     public void testReadMultipleValues() throws Exception {
         final AfpDataInputStream is = new AfpDataInputStream(
@@ -167,7 +167,7 @@ public final class AfpDataInputStreamTest extends TestCase {
     }
 
     /**
-     * Checks reading multiple values (staring at non-zero offset and some padding bytes at the end)
+     * Checks reading multiple values (staring at non-zero offset and some padding bytes at the end).
      */
     public void testReadMultipleValuesWithPaddingBytesAndNonZeroOffset() throws Exception {
         final AfpDataInputStream is = new AfpDataInputStream(Hex.decodeHex(
