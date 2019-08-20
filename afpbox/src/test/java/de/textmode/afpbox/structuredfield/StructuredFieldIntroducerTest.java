@@ -174,4 +174,36 @@ public final class StructuredFieldIntroducerTest extends TestCase {
         assertEquals(sfi.getStructuredFieldIntroducerLength(), 7);
         assertEquals(sfi.getStructuredFieldIdentifier(), StructuredFieldIdentifier.BPF);
     }
+
+    /**
+     * Checks if an invalid structured field length is detected (7 Bytes is too short).
+     */
+    public void testTooShortStructuredFieldLength() throws Exception {
+        final byte[] beginPrintFile = Hex.decodeHex("5A0007D3A8A5200000".toCharArray());
+        final Record record = new Record(beginPrintFile, 123);
+
+        final StructuredFieldIntroducer sfi = new StructuredFieldIntroducer(record);
+        try {
+            sfi.getStructuredFieldLength();
+            fail("Should fail because the record contains a too short structured field length");
+        } catch (final AfpException e) {
+            assertTrue(e.getMessage().contains("invalid structured field length"));
+        }
+    }
+
+    /**
+     * Checks if an invalid structured field length is detected (X'80000' Bytes is too long).
+     */
+    public void testTooLongStructuredFieldLength() throws Exception {
+        final byte[] beginPrintFile = Hex.decodeHex("5A8000D3A8A5200000".toCharArray());
+        final Record record = new Record(beginPrintFile, 123);
+
+        final StructuredFieldIntroducer sfi = new StructuredFieldIntroducer(record);
+        try {
+            sfi.getStructuredFieldLength();
+            fail("Should fail because the record contains a too large structured field length");
+        } catch (final AfpException e) {
+            assertTrue(e.getMessage().contains("invalid structured field length"));
+        }
+    }
 }
