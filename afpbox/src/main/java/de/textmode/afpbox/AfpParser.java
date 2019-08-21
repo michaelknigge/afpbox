@@ -22,6 +22,8 @@ import java.io.IOException;
 import de.textmode.afpbox.io.AfpDataInputStream;
 import de.textmode.afpbox.io.Record;
 import de.textmode.afpbox.io.RecordReader;
+import de.textmode.afpbox.structuredfield.FaultyStructuredField;
+import de.textmode.afpbox.structuredfield.StructuredField;
 import de.textmode.afpbox.structuredfield.StructuredFieldFactory;
 import de.textmode.afpbox.structuredfield.StructuredFieldIntroducer;
 
@@ -64,19 +66,35 @@ public final class AfpParser {
                 } else {
                     final StructuredFieldIntroducer sfi = new StructuredFieldIntroducer(record);
                     if (this.handler.handleStructuredFieldIntroducer(sfi)) {
+                        final AfpDataInputStream is = this.createAfpDataInputStream(data, sfi); 
+                        StructuredField sf;
+                        try {
+                            sf = StructuredFieldFactory.createFor(sfi.getStructuredFieldIdentifier(), is);
+                        } catch (final AfpException e) {
+                            sf = null;
+                        }
 
-                        final AfpDataInputStream is = new AfpDataInputStream(
-                                data,
-                                sfi.getStructuredFieldIntroducerLength(),
-                                sfi.getPaddingDataLength()); // TODO: Better length of SF!
-
-                        // TODO: create a FaultyStructuredField if an AfpException occurs...
-                        // TODO: maybe extend the handler for a "handleFaultyStructuredField" operation
-                        this.handler.handleStructuredField(
-                                StructuredFieldFactory.createFor(sfi.getStructuredFieldIdentifier(), is));
+                        if (sf != null) {
+                            this.handler.handleStructuredField(
+                                    StructuredFieldFactory.createFor(
+                                            sfi.getStructuredFieldIdentifier(), is));
+                        } else {
+                            this.handler.handleFaultyStructuredField(new FaultyStructuredField(
+                                    this.createAfpDataInputStream(data, sfi)));
+                        }
                     }
                 }
             }
         }
+    }
+
+    private AfpDataInputStream createAfpDataInputStream(
+            final byte[] data,
+            final StructuredFieldIntroducer sfi) throws AfpException {
+
+        return new AfpDataInputStream(
+                data,
+                sfi.getStructuredFieldIntroducerLength(),
+                sfi.getPaddingDataLength()); // TODO: Better length of SF!
     }
 }

@@ -24,6 +24,7 @@ import org.apache.commons.codec.binary.Hex;
 import de.textmode.afpbox.common.StructuredFieldIdentifier;
 import de.textmode.afpbox.io.Record;
 import de.textmode.afpbox.io.RecordReader;
+import de.textmode.afpbox.structuredfield.FaultyStructuredField;
 import de.textmode.afpbox.structuredfield.StructuredField;
 import de.textmode.afpbox.structuredfield.StructuredFieldIntroducer;
 import junit.framework.TestCase;
@@ -34,6 +35,7 @@ public final class AfpParserTest extends TestCase implements RecordReader, Recor
     private final LinkedList<Record> handledLineRecords = new LinkedList<>();
     private final LinkedList<StructuredFieldIntroducer> handledStructuredFieldIntroducers = new LinkedList<>();
     private final LinkedList<StructuredField> handledStructuredFields = new LinkedList<>();
+    private final LinkedList<FaultyStructuredField> handledFaultyStructuredFields = new LinkedList<>();
 
     @Override
     public void setUp() {
@@ -41,6 +43,7 @@ public final class AfpParserTest extends TestCase implements RecordReader, Recor
         this.handledLineRecords.clear();
         this.handledStructuredFieldIntroducers.clear();
         this.handledStructuredFields.clear();
+        this.handledFaultyStructuredFields.clear();
     }
 
     /**
@@ -53,6 +56,14 @@ public final class AfpParserTest extends TestCase implements RecordReader, Recor
         assertTrue(this.handledLineRecords.isEmpty());
         assertTrue(this.handledStructuredFieldIntroducers.isEmpty());
         assertTrue(this.handledStructuredFields.isEmpty());
+        assertTrue(this.handledFaultyStructuredFields.isEmpty());
+    }
+
+    /**
+     * Processes an AFP file with a faulty Structured Field.
+     */
+    public void testFaultyStructuredField() throws Exception {
+        // TODO implement a unit test
     }
 
     /**
@@ -74,6 +85,7 @@ public final class AfpParserTest extends TestCase implements RecordReader, Recor
 
         assertTrue(this.handledStructuredFieldIntroducers.isEmpty());
         assertTrue(this.handledStructuredFields.isEmpty());
+        assertTrue(this.handledFaultyStructuredFields.isEmpty());
     }
 
     /**
@@ -106,6 +118,7 @@ public final class AfpParserTest extends TestCase implements RecordReader, Recor
         assertEquals(this.handledStructuredFieldIntroducers.poll(), null);
 
         assertTrue(this.handledStructuredFields.isEmpty());
+        assertTrue(this.handledFaultyStructuredFields.isEmpty());
     }
 
     @Override
@@ -127,5 +140,10 @@ public final class AfpParserTest extends TestCase implements RecordReader, Recor
     @Override
     public void handleStructuredField(final StructuredField sf) {
         this.handledStructuredFields.add(sf);
+    }
+
+    @Override
+    public void handleFaultyStructuredField(final FaultyStructuredField sf) {
+        this.handledFaultyStructuredFields.add(sf);
     }
 }
