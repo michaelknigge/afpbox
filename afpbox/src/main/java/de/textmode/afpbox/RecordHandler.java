@@ -17,6 +17,7 @@ package de.textmode.afpbox;
  */
 
 import de.textmode.afpbox.io.Record;
+import de.textmode.afpbox.structuredfield.FaultyStructuredField;
 import de.textmode.afpbox.structuredfield.StructuredField;
 import de.textmode.afpbox.structuredfield.StructuredFieldIntroducer;
 
@@ -51,5 +52,13 @@ public interface RecordHandler {
      * @param sf   the read and parsed {@link StructuredField}.
      */
     public void handleStructuredField(final StructuredField sf);
+
+    /**
+     * This method gets called if an AFP record has been read, {@link #handleStructuredFieldIntroducer}
+     * returned <code>true</code> and the Structured Field is faulty.
+     *
+     * @param sf   the read and faulty {@link FaultyStructuredField}.
+     */
+    public void handleFaultyStructuredField(final FaultyStructuredField sf);
 
 }
