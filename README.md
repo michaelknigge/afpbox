@@ -213,7 +213,7 @@ X'8E' | UP3i Finishing Operation                            | :x:
 
 # PTOCA Control Sequence
 The following table shows which PTOCA Control Sequence are currently supported (*"supported"* means
-that afpbox can parse the PTOCA Control Sequencer and create a specific Java object for it).
+that afpbox can parse the PTOCA Control Sequence and create a specific Java object for it).
 
 Acronym| Control Sequence Name                  | Supported
 -------|----------------------------------------|----------
