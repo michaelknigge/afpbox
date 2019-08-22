@@ -210,6 +210,110 @@ X'FF' | Triplet Extender                                    | :x:
 X'72' | Universal Date and Time Stamp                       | :x:
 X'8E' | UP3i Finishing Operation                            | :x:
 
+
+# PTOCA Control Sequence
+The following table shows which PTOCA Control Sequence are currently supported (*"supported"* means
+that afpbox can parse the PTOCA Control Sequencer and create a specific Java object for it).
+
+Acronym| Control Sequence Name                  | Supported
+-------|----------------------------------------|----------
+SIM    | Set Inline Margin                      | :x:
+SIA    | Set Intercharacter Adjustment          | :x:
+SVI    | Set Variable Space Character Increment | :x:
+AMI    | Absolute Move Inline                   | :x:
+RMI    | Relative Move Inline                   | :x:
+SBI    | Set Baseline Increment                 | :x:
+AMB    | Absolute Move Baseline                 | :x:
+RMB    | Relative Move Baseline                 | :x:
+BLN    | Begin Line                             | :x:
+STO    | Set Text Orientation                   | :x:
+UCT    | Unicode Complex Text                   | :x:
+GLC    | Glyph Layout Control                   | :x:
+GIR    | Glyph ID Run                           | :x:
+GAR    | Glyph Advance Run                      | :x:
+GOR    | Glyph Offset Run                       | :x:
+TRN    | Transparent Data                       | :x:
+RPS    | Repeat String                          | :x:
+NOP    | No Operation                           | :x:
+DIR    | Draw I-axis Rule                       | :x:
+DBR    | Draw B-axis Rule                       | :x:
+STC    | Set Text Color                         | :x:
+SEC    | Set Extended Text Color                | :x:
+SCFL   | Set Coded Font Local                   | :x:
+BSU    | Begin Suppression                      | :x:
+ESU    | End Suppression                        | :x:
+OVS    | Overstrike                             | :x:
+USC    | Underscore                             | :x:
+TBM    | Temporary Baseline Move                | :x:
+
+# GOCA Drawing Orders
+The following table shows which GOCA Drawing Orders are currently supported (*"supported"* means
+that afpbox can parse the GOCA Drawing Order and create a specific Java object for it).
+
+Acronym| Identifier| Structured Field Name                  | Supported
+-------|-----------|----------------------------------------|----------
+GBAR   | X'68'     | Begin Area                             | :x: 
+GBCP   | X'DE'     | Begin Custom Pattern                   | :x:
+GBIMG  | X'D1'     | Begin Image at Given Position          | :x:
+GBOX   | X'C0'     | Box at Given Position                  | :x:
+GCBEZ  | X'E5'     | Cubic Bezier Curve at Given Position   | :x:
+GCBIMG | X'91'     | Begin Image at Current Position        | :x:
+GCBOX  | X'80'     | Box at Current Position                | :x:
+GCCBEZ | X'A5'     | Cubic Bezier Curve at Current Position | :x:
+GCCHST | X'83'     | Character String at Current Position   | :x:
+GCFARC | X'87'     | Full Arc at Current Position           | :x:
+GCFLT  | X'85'     | Fillet at Current Position             | :x:
+GCHST  | X'C3'     | Character String at Given Position     | :x:
+GCLINE | X'81'     | Line at Current Position               | :x:
+GCMRK  | X'82'     | Marker at Current Position             | :x:
+GCOMT  | X'01'     | Comment                                | :x:
+GCPARC | X'A3'     | Partial Arc at Current Position        | :x:
+GCRLINE| X'A1'     | Relative Line at Current Position      | :x:
+GDPT   | X'DF'     | Delete Pattern                         | :x:
+GEAR   | X'60'     | End Area                               | :x:
+GECP   | X'5E'     | End Custom Pattern                     | :x:
+GEIMG  | X'93'     | End Image                              | :x:
+GEPROL | X'3E'     | End Prolog                             | :x:
+GFARC  | X'C7'     | Full Arc at Given Position             | :x:
+GFLT   | X'C5'     | Fillet at Given Position               | :x:
+GIMD   | X'92'     | Image Data                             | :x:
+GLGD   | X'FEDC'   | Linear Gradient                        | :x:
+GLINE  | X'C1'     | Line at Given Position                 | :x:
+GMRK   | X'C2'     | Marker at Given Position               | :x:
+GNOP1  | X'00'     | No-Operation                           | :x:
+GPARC  | X'E3'     | Partial Arc at Given Position          | :x:
+GRGD   | X'FEDD'   | Radial Gradient                        | :x:
+GRLINE | X'E1'     | Relative Line at Given Position        | :x:
+GSAP   | X'22'     | Set Arc Parameters                     | :x:
+GSBMX  | X'0D'     | Set Background Mix                     | :x:
+GSCA   | X'34'     | Set Character Angle                    | :x:
+GSCC   | X'33'     | Set Character Cell                     | :x:
+GSCD   | X'3A'     | Set Character Direction                | :x:
+GSCH   | X'35'     | Set Character Shear                    | :x:
+GSCLT  | X'20'     | Set Custom Line Type                   | :x:
+GSCOL  | X'0A'     | Set Color                              | :x:
+GSCP   | X'21'     | Set Current Position                   | :x:
+GSCR   | X'39'     | Set Character Precision                | :x:
+GSCS   | X'38'     | Set Character Set                      | :x:
+GSECOL | X'26'     | Set Extended Color                     | :x:
+GSFLW  | X'11'     | Set Fractional Line Width              | :x:
+GSGCH  | X'04'     | Segment Characteristics                | :x:
+GSLE   | X'1A'     | Set Line End                           | :x:
+GSLJ   | X'1B'     | Set Line Join                          | :x:
+GSLT   | X'18'     | Set Line Type                          | :x:
+GSLW   | X'19'     | Set Line Width                         | :x:
+GSMC   | X'37'     | Set Marker Cell                        | :x:
+GSMP   | X'3B'     | Set Marker Precision (obsolete)        | :x:
+GSMS   | X'3C'     | Set Marker Set                         | :x:
+GSMT   | X'29'     | Set Marker Symbol                      | :x:
+GSMX   | X'0C'     | Set Mix                                | :x:
+GSPCOL | X'B2'     | Set Process Color                      | :x:
+GSPIK  | X'43'     | Set Pick Identifier                    | :x:
+GSPRP  | X'A0'     | Set Pattern Reference Point            | :x:
+GSPS   | X'08'     | Set Pattern Set                        | :x:
+GSPT   | X'28'     | Set Pattern Symbol                     | :x:
+????   | X'71'     | End Segment                            | :x:
+
 # Contribute
 If you want to contribute to afpbox, you're welcome. But please make sure that your changes keep the quality of afpbox at least at it's current level. So please make sure that your contributions comply with the afpbox coding conventions (formatting etc.) and that your contributions are validated by JUnit tests.
 
