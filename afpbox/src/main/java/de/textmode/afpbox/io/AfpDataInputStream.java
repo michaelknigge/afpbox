@@ -54,6 +54,15 @@ public final class AfpDataInputStream {
      * Constructs an {@link AfpDataInputStream}.
      *
      * @param data the underlying byte array
+     */
+    public AfpDataInputStream(final byte[] data) {
+        this(data, 0, 0);
+    }
+
+    /**
+     * Constructs an {@link AfpDataInputStream}.
+     *
+     * @param data the underlying byte array
      * @param startOffset the start offset (usually the first byte after the Structured field introducer)
      * @param paddingBytesToIgnore Padding bytes that shall be ignored
      */
@@ -78,8 +87,26 @@ public final class AfpDataInputStream {
                     "Tried to parse " + length
                     + " bytes at offset " + this.offset
                     + " but there are only " + this.bytesLeft
-                    + " bytes left to parse. Maybe the structured field is truncated.");
+                    + " bytes left to parse.");
         }
+    }
+
+    /**
+     * Returns the number of bytes available to read.
+     *
+     * @return the number of bytes available to read.
+     */
+    public int bytesAvailable() {
+        return this.bytesLeft;
+    }
+
+    /**
+     * Returns the current offset within the {@link AfpDataInputStream}.
+     *
+     * @return the current offset within the {@link AfpDataInputStream}.
+     */
+    public int tell() {
+        return this.offset;
     }
 
     /**
@@ -92,6 +119,32 @@ public final class AfpDataInputStream {
      * @throws AfpException if there are not enough bytes left to read.
      */
     public byte[] readBytes(final int length) throws AfpException {
+        this.checkForAvailableBytes(length);
+
+        final byte[] result = new byte[length];
+        System.arraycopy(this.data, this.offset, result, 0, length);
+
+        this.offset += length;
+        this.bytesLeft -= length;
+
+        return result;
+    }
+
+    /**
+     * Reads and returns some bytes, staring at the given offset.
+     *
+     * @param off     the offset where reading should start
+     * @param length  how many bytes should be read and returned
+     *
+     * @return the requested amount of bytes read.
+     *
+     * @throws AfpException if there are not enough bytes left to read.
+     */
+    public byte[] readBytes(final int off, final int length) throws AfpException {
+        final int diff = this.offset - off;
+        this.offset -= diff;
+        this.bytesLeft += diff;
+
         this.checkForAvailableBytes(length);
 
         final byte[] result = new byte[length];

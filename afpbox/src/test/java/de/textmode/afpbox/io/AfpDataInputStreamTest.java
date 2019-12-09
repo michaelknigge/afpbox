@@ -187,4 +187,21 @@ public final class AfpDataInputStreamTest extends TestCase {
         }
     }
 
+    /**
+     * Tests reading with specifying an offset.
+     */
+    public void testReadWithOffset() throws Exception {
+        final AfpDataInputStream is = new AfpDataInputStream(Hex.decodeHex(
+                "00112233445566778899".toCharArray()));
+
+        assertTrue((Arrays.equals(Hex.decodeHex("4455".toCharArray()), is.readBytes(4, 2))));
+        assertEquals(4, is.bytesAvailable());
+
+        assertTrue((Arrays.equals(Hex.decodeHex("22334455".toCharArray()), is.readBytes(2, 4))));
+        assertEquals(4, is.bytesAvailable());
+
+        assertTrue((Arrays.equals(Hex.decodeHex("00".toCharArray()), is.readBytes(0, 1))));
+        assertEquals(9, is.bytesAvailable());
+    }
+
 }

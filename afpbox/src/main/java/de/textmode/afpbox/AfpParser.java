@@ -52,9 +52,8 @@ public final class AfpParser {
      *
      * @throws EOFException if the end of the stream was reached unexpectedly.
      * @throws IOException if an I/O error occurs.
-     * @throws AfpException if an AFP record is corrupt.
      */
-    public void parse() throws IOException, AfpException {
+    public void parse() throws IOException {
 
         Record record;
 
@@ -66,21 +65,22 @@ public final class AfpParser {
                 } else {
                     final StructuredFieldIntroducer sfi = new StructuredFieldIntroducer(record);
                     if (this.handler.handleStructuredFieldIntroducer(sfi)) {
-                        final AfpDataInputStream is = this.createAfpDataInputStream(data, sfi); 
                         StructuredField sf;
                         try {
+                            final AfpDataInputStream is = this.createAfpDataInputStream(data, sfi);
                             sf = StructuredFieldFactory.createFor(sfi.getStructuredFieldIdentifier(), is);
                         } catch (final AfpException e) {
                             sf = null;
                         }
 
                         if (sf != null) {
-                            this.handler.handleStructuredField(
-                                    StructuredFieldFactory.createFor(
-                                            sfi.getStructuredFieldIdentifier(), is));
+                            this.handler.handleStructuredField(sf);
                         } else {
-                            this.handler.handleFaultyStructuredField(new FaultyStructuredField(
-                                    this.createAfpDataInputStream(data, sfi)));
+                            this.handler.handleFaultyStructuredField(
+                                    new FaultyStructuredField(new AfpDataInputStream(
+                                            data, 
+                                            StructuredFieldIntroducer.STRUCTURED_FIELD_INTRODUCER_LENGTH,
+                                            0)));
                         }
                     }
                 }

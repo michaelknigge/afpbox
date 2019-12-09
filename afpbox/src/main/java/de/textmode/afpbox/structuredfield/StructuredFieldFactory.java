@@ -179,22 +179,22 @@ public final class StructuredFieldFactory {
         //        case StructuredFieldIdentifier.MSU:
         case StructuredFieldIdentifier.NOP:
             return new NoOperation(is);
-            //        case StructuredFieldIdentifier.OBD:
-            //        case StructuredFieldIdentifier.OBP:
-            //        case StructuredFieldIdentifier.OCD:
-            //        case StructuredFieldIdentifier.PEC:
-            //        case StructuredFieldIdentifier.PFC:
-            //        case StructuredFieldIdentifier.PGD:
-            //        case StructuredFieldIdentifier.PGP1:
-            //        case StructuredFieldIdentifier.PGP2:
-            //        case StructuredFieldIdentifier.PMC:
-            //        case StructuredFieldIdentifier.PPO:
-            //        case StructuredFieldIdentifier.PTD1:
-            //        case StructuredFieldIdentifier.PTD2:
-            //        case StructuredFieldIdentifier.PTX:
-            //        case StructuredFieldIdentifier.RCD:
-            //        case StructuredFieldIdentifier.TLE:
-            //        case StructuredFieldIdentifier.XMD:
+        //        case StructuredFieldIdentifier.OBD:
+        //        case StructuredFieldIdentifier.OBP:
+        //        case StructuredFieldIdentifier.OCD:
+        //        case StructuredFieldIdentifier.PEC:
+        //        case StructuredFieldIdentifier.PFC:
+        //        case StructuredFieldIdentifier.PGD:
+        //        case StructuredFieldIdentifier.PGP1:
+        //        case StructuredFieldIdentifier.PGP2:
+        //        case StructuredFieldIdentifier.PMC:
+        //        case StructuredFieldIdentifier.PPO:
+        //        case StructuredFieldIdentifier.PTD1:
+        //        case StructuredFieldIdentifier.PTD2:
+        //        case StructuredFieldIdentifier.PTX:
+        //        case StructuredFieldIdentifier.RCD:
+        //        case StructuredFieldIdentifier.TLE:
+        //        case StructuredFieldIdentifier.XMD:
 
         default:
             return new UnknownStructuredField(is);

@@ -26,14 +26,14 @@ import de.textmode.afpbox.io.Record;
  */
 public final class StructuredFieldIntroducer {
 
+    public static final int STRUCTURED_FIELD_INTRODUCER_LENGTH = 7;
+
     private static final int BIT0 = 0x80; // 1000 0000
     private static final int BIT2 = 0x20; // 0010 0000
     private static final int BIT4 = 0x08; // 0000 1000
 
     private static final int OFFSET_TO_FLAG_BYTE = 6;
     private static final int OFFSET_TO_SFID = 3;
-
-    private static final int STRUCTURED_FIELD_INTRODUCER_LENGTH = 7;
 
     private final Record record;
     private final byte flagByte;
@@ -171,7 +171,7 @@ public final class StructuredFieldIntroducer {
         final int length = ByteUtils.toInteger(this.record.getData(), 1, 2);
         if (length < 8 || length > 32767) {
             throw new AfpException(
-                    "Record at offset " + this.record.getOffset() 
+                    "Record at offset " + this.record.getOffset()
                     + " specifies an invalid structured field length: " + length);
         }
 
