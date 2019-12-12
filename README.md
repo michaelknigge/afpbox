@@ -2,7 +2,7 @@
 
 Java library for parsing [AFP](https://en.wikipedia.org/wiki/Advanced_Function_Presentation) ([MO:DCA](https://en.wikipedia.org/wiki/MODCA)) printer data streams.
 
-**NOTE: This project started in April 2018 and is completely useless in its current state. The goal is to make afpbox a
+**NOTE: This project started in April 2018 and is nearly useless in its current state. The goal is to make afpbox a
 lightweight, fast and robust AFP parser. But keep in mind that this is a hobbyist project. So I guess
 it will take up to two years to make afpbox a library that is of any use.**
 
@@ -16,7 +16,7 @@ Because afpbox is available at [jcenter](https://bintray.com/bintray/jcenter) it
 <dependency>
   <groupId>de.textmode.afpbox</groupId>
   <artifactId>afpbox</artifactId>
-  <version>0.1</version>
+  <version>0.2</version>
   <type>pom</type>
 </dependency>
 ```
@@ -25,7 +25,7 @@ If you use Gradle, add this:
 
 ```
 dependencies {
-    compile 'de.textmode.afpbox:afpbox:0.1'
+    compile 'de.textmode.afpbox:afpbox:0.2'
 }
 ```
 
