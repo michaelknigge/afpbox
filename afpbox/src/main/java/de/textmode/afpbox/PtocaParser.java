@@ -90,7 +90,7 @@ public final class PtocaParser {
                         throw new EOFException(
                                 "The PTOCA stream seems to be truncated after a control sequence class byte.");
                     }
-                    parseControlSequence(reader, handler);
+                    parseControlSequence(data, reader, handler);
                 } else {
                     throw new AfpException(
                             "A control sequence class byte (value 0xD3) was " +
@@ -105,11 +105,12 @@ public final class PtocaParser {
     }
 
     private static void parseControlSequence(
+            final byte[] ptocaData,
             final AfpDataInputStream reader,
             final PtocaControlSequenceHandler handler) throws AfpException {
 
-        boolean lastInChain = false;
-        while (!lastInChain && reader.bytesAvailable() > 0) {
+        boolean chainedSequence = true;
+        while (chainedSequence && reader.bytesAvailable() > 0) {
             final int length = reader.readUnsignedByte();
             if (length < 2) {
                 throw new AfpException("A length value " + length + " was read for an PTOCA control sequence.");
@@ -118,9 +119,9 @@ public final class PtocaParser {
             final int functionType = readFunctionType(reader);
             final byte[] data = reader.readBytes(reader.tell() - 2, length);
 
-            lastInChain = (data[1] & 0x01) == 1;
+            chainedSequence = (data[1] & 0x01) == 1;
 
-            if (handler.handleControSequence(functionType, reader.tell() - length, data)) {
+            if (handler.handleControSequence(functionType, reader.tell() - length, ptocaData)) {
                 handler.handleControSequence(PtocaControlSequenceFactory.createFor(functionType, data));
             }
         }

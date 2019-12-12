@@ -2,6 +2,7 @@ package de.textmode.afpbox;
 
 import org.apache.commons.codec.binary.Hex;
 
+import de.textmode.afpbox.common.ByteUtils;
 import de.textmode.afpbox.ptoca.PtocaControlSequence;
 import junit.framework.TestCase;
 
@@ -16,11 +17,20 @@ public final class PtocaParserTest extends TestCase implements PtocaControlSeque
 
     @Override
     public boolean handleControSequence(final int functionType, final int off, final byte[] data) {
+        this.sb.append("type=");
         this.sb.append(Integer.toHexString(functionType));
-        this.sb.append(" ");
+        this.sb.append(" off=");
         this.sb.append(off);
-        this.sb.append(" ");
-        this.sb.append(Hex.encodeHexString(data));
+
+        final int len = ByteUtils.toInteger(data, off, 1);
+        this.sb.append(" len=");
+        this.sb.append(len);
+        this.sb.append(" data=");
+
+        final byte[] subData = new byte[len];
+        System.arraycopy(data,  off,  subData, 0, len);
+
+        this.sb.append(Hex.encodeHexString(subData));
         this.sb.append("\n");
 
         return false;
@@ -34,6 +44,7 @@ public final class PtocaParserTest extends TestCase implements PtocaControlSeque
 
     @Override
     public void handleCodePoints(final byte[] codePoints) {
+        this.sb.append("text=");
         this.sb.append(Hex.encodeHexString(codePoints));
         this.sb.append("\n");
     }
@@ -89,26 +100,26 @@ public final class PtocaParserTest extends TestCase implements PtocaControlSeque
         final StringBuilder input = new StringBuilder();
         input.append("2BD3");
 
-        input.append("04D20001"); // AMB (chained)
-        input.append("02D8"); // BLN (chained)
-        input.append("03F103"); // SCFL (unchained)
+        input.append("04D30001"); // AMB (chained)
+        input.append("02D9");     // BLN (chained)
+        input.append("03F003");   // SCFL (unchained)
 
-        input.append("F1F2F3"); // EBCDIC-Text "123"
+        input.append("F1F2F3");   // EBCDIC-Text "123"
 
-        input.append("2BD3"); // Again, start over...
-        input.append("03F104"); // SCFL (unchained)
+        input.append("2BD3");     // Again, start over...
+        input.append("03F004");   // SCFL (unchained)
 
-        input.append("F4F5F6"); // EBCDIC-Text "456"
+        input.append("F4F5F6");   // EBCDIC-Text "456"
 
         PtocaParser.parse(Hex.decodeHex(input.toString().toCharArray()), this);
 
         final StringBuilder expected = new StringBuilder();
-        expected.append("d2 2 04d20001\n"); //AMB
-        expected.append("d8 6 02d8\n"); // BLN
-        expected.append("f0 8 03f103\n"); // SCFL
-        expected.append("f1f2f3\n"); // EBCDIC-Text
-        expected.append("f0 16 03f104\n"); // SCFL
-        expected.append("f4f5f6\n"); // EBCDIC-Text
+        expected.append("type=d2 off=2 len=4 data=04d30001\n"); //AMB
+        expected.append("type=d8 off=6 len=2 data=02d9\n");     // BLN
+        expected.append("type=f0 off=8 len=3 data=03f003\n");   // SCFL
+        expected.append("text=f1f2f3\n");                       // EBCDIC-Text
+        expected.append("type=f0 off=16 len=3 data=03f004\n");  // SCFL
+        expected.append("text=f4f5f6\n");                       // EBCDIC-Text
 
         assertEquals(expected.toString(), this.sb.toString());
     }
