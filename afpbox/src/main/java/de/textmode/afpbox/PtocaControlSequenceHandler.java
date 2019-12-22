@@ -30,7 +30,6 @@ public interface PtocaControlSequenceHandler {
      * possible to modify parsed PTOCA controls sequence.
      *
      * @param functionType   the PTOCA control sequence function type. It is one of the constants of {@link PtocaControlSequenceFunctionType}.
-     *                       Note that PTOCA control sequence function type is always the unchained function type (except for GLC and GIR).
      * @param data           the raw data of the PTOCA control sequence. Note that the byte[] contains the function type
      *                       and the length in the first two bytes.
      * @param off            offset within the byte[] where the PTOCA control sequence starts.

@@ -44,7 +44,8 @@ public final class PtocaControlSequenceFactory {
         // from an int... overkill... So we just use a switch-case which is pretty fast at runtime...
 
         switch (functionType) {
-        case PtocaControlSequenceFunctionType.AMB:
+        case PtocaControlSequenceFunctionType.AMB_CHAINED:
+        case PtocaControlSequenceFunctionType.AMB_UNCHAINED:
             return new AbsoluteMoveBaselineControlSequence(functionType, data);
 
             //        case PtocaControlSequenceFunctionType.AMI:

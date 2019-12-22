@@ -19,7 +19,6 @@ package de.textmode.afpbox;
 import java.io.EOFException;
 import java.io.IOException;
 
-import de.textmode.afpbox.common.PtocaControlSequenceFunctionType;
 import de.textmode.afpbox.io.AfpDataInputStream;
 import de.textmode.afpbox.ptoca.PtocaControlSequenceFactory;
 
@@ -109,7 +108,7 @@ public final class PtocaParser {
                 throw new AfpException("A length value " + length + " was read for an PTOCA control sequence.");
             }
 
-            final int functionType = readFunctionType(reader);
+            final int functionType = reader.readUnsignedByte();
             final byte[] data = reader.readBytes(reader.tell() - 2, length);
 
             chainedSequence = (data[1] & 0x01) == 1;
@@ -117,17 +116,6 @@ public final class PtocaParser {
             if (handler.handleControSequence(functionType, ptocaData, reader.tell() - length)) {
                 handler.handleControSequence(PtocaControlSequenceFactory.createFor(functionType, data));
             }
-        }
-    }
-
-    private static int readFunctionType(final AfpDataInputStream reader) throws AfpException {
-        final int functionType = reader.readUnsignedByte();
-        if (functionType == PtocaControlSequenceFunctionType.GLC) {
-            return functionType; // There is no unchained function type for GLC
-        } else if (functionType == PtocaControlSequenceFunctionType.GIR) {
-            return functionType; // There is no unchained function type for GIR
-        } else {
-            return functionType & ~0x01; // return the unchained function type
         }
     }
 }

@@ -116,8 +116,8 @@ public final class PtocaParserTest extends TestCase implements PtocaControlSeque
         PtocaParser.parse(Hex.decodeHex(input.toString().toCharArray()), this);
 
         final StringBuilder expected = new StringBuilder();
-        expected.append("type=d2 off=2 len=4 data=04d30001\n"); //AMB
-        expected.append("type=d8 off=6 len=2 data=02d9\n");     // BLN
+        expected.append("type=d3 off=2 len=4 data=04d30001\n"); // AMB
+        expected.append("type=d9 off=6 len=2 data=02d9\n");     // BLN
         expected.append("type=f0 off=8 len=3 data=03f003\n");   // SCFL
         expected.append("text=f1f2f3\n");                       // EBCDIC-Text
         expected.append("type=f0 off=16 len=3 data=03f004\n");  // SCFL
