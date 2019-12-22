@@ -16,7 +16,7 @@ public final class PtocaParserTest extends TestCase implements PtocaControlSeque
     }
 
     @Override
-    public boolean handleControSequence(final int functionType, final int off, final byte[] data) {
+    public boolean handleControSequence(final int functionType, final byte[] data, final int off) {
         this.sb.append("type=");
         this.sb.append(Integer.toHexString(functionType));
         this.sb.append(" off=");
@@ -43,9 +43,11 @@ public final class PtocaParserTest extends TestCase implements PtocaControlSeque
     }
 
     @Override
-    public void handleCodePoints(final byte[] codePoints) {
+    public void handleCodePoints(final byte[] codePoints, final int off, final int len) {
+        final byte[] data = new byte[len];
+        System.arraycopy(codePoints, off, data, 0, len);
         this.sb.append("text=");
-        this.sb.append(Hex.encodeHexString(codePoints));
+        this.sb.append(Hex.encodeHexString(data));
         this.sb.append("\n");
     }
 

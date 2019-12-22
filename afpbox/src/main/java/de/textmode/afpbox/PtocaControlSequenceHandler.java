@@ -31,14 +31,14 @@ public interface PtocaControlSequenceHandler {
      *
      * @param functionType   the PTOCA control sequence function type. It is one of the constants of {@link PtocaControlSequenceFunctionType}.
      *                       Note that PTOCA control sequence function type is always the unchained function type (except for GLC and GIR).
-     * @param off            offset within the byte[] where the PTOCA control sequence starts.
      * @param data           the raw data of the PTOCA control sequence. Note that the byte[] contains the function type
      *                       and the length in the first two bytes.
+     * @param off            offset within the byte[] where the PTOCA control sequence starts.
      *
      * @return true if the PTOCA control sequence should be parsed. After the PTOCA control sequence has been
      * parsed the method {@link #handleControSequence(PtocaControlSequence)} gets invoked.
      */
-    public boolean handleControSequence(final int functionType, final int off, final byte[] data);
+    public boolean handleControSequence(final int functionType, final byte[] data, final int off);
 
     /**
      * This method gets called if a {@link PtocaControlSequence} has been read
@@ -49,9 +49,13 @@ public interface PtocaControlSequenceHandler {
     public void handleControSequence(final PtocaControlSequence controlSequence);
 
     /**
-     * This method gets called if a one or more code points have been read.
+     * This method gets called if a one or more code points have been read. Note that the given byte[]
+     * is backed by the byte[] that has been passed to the {@link PtocaParser}. So with this operation it is
+     * possible to modify parsed code points.
      *
      * @param codePoints   the read code points.
+     * @param off          offset within the byte[] where the code points starts.
+     * @param len          length of the code points (in bytes, not characters).
      */
-    public void handleCodePoints(final byte[] codePoints);
+    public void handleCodePoints(final byte[] codePoints, final int off, final int len);
 }
