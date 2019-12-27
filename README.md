@@ -91,7 +91,7 @@ as for the `RecordHandler` above - the application decides which control sequenc
 and which not. 
 
 Here is an example how to use the `PtocaParser`. This sample removes all NOPs from the PtocaControlSequence
-block and constructs a new PTOCA block. The sampe is rather dumb, buggy and incomplete but it shows the idea
+block and constructs a new PTOCA block. The sampe is rather dumb and incomplete but it shows the idea
 behind the `PtocaControlSequenceHandler` and how to use it.
 
 ```java
@@ -108,15 +108,12 @@ PtocaParser.parse(ptocaBlock, new PtocaControlSequenceHandler() {
 
     @Override
     public void handleControSequence(final PtocaControlSequence controlSequence) {
-       baos.write((byte) controlSequence.getLength());
-       baos.write((byte) controlSequence.getFunctionType());
        baos.write(controlSequence.getData());
     }
 
     @Override
     public void handleCodePoints(final byte[] codePoints, final int off, final int len) {
-        // Code points (text to be printed) outside "Transparent Data" (TRN) control
-        // sequences are ignored in this sample..
+        baos.write(controlSequence.getData(), off, len);
     }
 });
 ```
