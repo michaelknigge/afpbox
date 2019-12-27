@@ -29,7 +29,97 @@ dependencies {
 }
 ```
 
-**TODO: Add usage sample here**
+## AFP-Parser
+
+AFP (MODCA) is a record oriented data stream. For this reason you need to implement a `RecordReader` first. afpbox comes with two common implementations
+of a `RecordReader`.
+
+The `StandardRecordReader` is probably the `RecordReader` of your choice. It reads the special control character X'5A' of the
+record and determines the record length from the following two bytes.
+
+The `MvsRecordReader` expects that every AFP record is prefixed with four bytes. The record length is determined from the first two bytes. The following
+two bytes are ignored. This record format corresponds to the record format VB on z/OS (formerly known as OS/390, which was formerly known as MVS.)
+
+Now when you have a `RecordReader` you further need a `RecordHandler`. The main idea behind the `RecordHandler` is that the application can control
+which structured fields have to be parsed and which not. You have to implement a `RecordHandler` according to your needs.
+
+When you have a `RecordReader` and a `RecordHandler` you are ready to create a `AfpParser`. Let's build a sample application that will
+count the pages of an AFP file so you'll get the idea behind the design of afpbox:
+
+```java
+int pageCounter = 0;
+final InputStream is = new FileInputStream("myfile.afp");
+final RecordHandler rh = new RecordHandler() {
+
+    @Override
+    public void handleLineRecord(final Record record) {
+        // We just ignore line records (we don't support mixed-mode files in this sample).
+    }
+
+    @Override
+    public boolean handleStructuredFieldIntroducer(final StructuredFieldIntroducer sfi) {
+        // *ONLY* if the read record is a "Begin Page" (BPG) structured field: parse
+        // the structured field and pass the passed structured field to method
+        // "handleStructuredField" of the RecordHandler.
+        return sfi.getStructuredFieldIdentifier() == StructuredFieldIdentifier.BPG;
+    }
+
+    @Override
+    public void handleStructuredField(final StructuredField sf) {
+        // We only get invoked on structured field "Begin Page" (BPG) - see above...
+        ++pageCounter;
+    }
+
+    @Override
+    public void handleFaultyStructuredField(final FaultyStructuredField sf) {
+        // Hopefully we don't see faulty structured fields in our file...
+    }
+};
+
+new AfpParser(new StandardRecordReader(is), rh).parse();
+
+System.out.println("Pages in this file: " + pageCounter);
+```
+
+## PTOCA-Parser
+If you want to parse PTOCA control sequences, you have to combine the PTOCA data of all PTX
+structured fields (within a Presentation Text Block) and parse this combined data.
+
+afpbox provides a `PtocaParser` for this PTOCA data. To use this `PtocaParser` you need to implement
+a `PtocaControlSequenceHandler` according to your needs. The idea of the design is somehow the same
+as for the `RecordHandler` above - the application decides which control sequences are parsed
+and which not. 
+
+Here is an example how to use the `PtocaParser`. This sample removes all NOPs from the PtocaControlSequence
+block and constructs a new PTOCA block. The sampe is rather dumb, buggy and incomplete but it shows the idea
+behind the `PtocaControlSequenceHandler` and how to use it.
+
+```java
+final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+PtocaParser.parse(ptocaBlock, new PtocaControlSequenceHandler() {
+
+    @Override
+    public boolean handleControSequence(final int functionType, final byte[] data, final int off) {
+        // *ONLY* if the PTOCA function type is not "No Operation" (NOP - no matter if chained or unchained) parse
+        // the PTOCA control sequence and invoke "handleControSequence" of the PtocaControlSequenceHandler.
+        return functionType != PtocaControlSequenceFunctionType.NOP_UNCHAINED && functionType != PtocaControlSequenceFunctionType.NOP_CHAINED;
+    }
+
+    @Override
+    public void handleControSequence(final PtocaControlSequence controlSequence) {
+       baos.write((byte) controlSequence.getLength());
+       baos.write((byte) controlSequence.getFunctionType());
+       baos.write(controlSequence.getData());
+    }
+
+    @Override
+    public void handleCodePoints(final byte[] codePoints, final int off, final int len) {
+        // Code points (text to be printed) outside "Transparent Data" (TRN) control
+        // sequences are ignored in this sample..
+    }
+});
+```
 
 # Structured Fields
 The following table shows which Structured Fields are currently supported (*"supported"* means
@@ -220,11 +310,11 @@ Acronym| Control Sequence Name                  | Supported
 SIM    | Set Inline Margin                      | :x:
 SIA    | Set Intercharacter Adjustment          | :x:
 SVI    | Set Variable Space Character Increment | :x:
-AMI    | Absolute Move Inline                   | :x:
-RMI    | Relative Move Inline                   | :x:
+AMI    | Absolute Move Inline                   | :white_check_mark:
+RMI    | Relative Move Inline                   | :white_check_mark:
 SBI    | Set Baseline Increment                 | :x:
-AMB    | Absolute Move Baseline                 | :x:
-RMB    | Relative Move Baseline                 | :x:
+AMB    | Absolute Move Baseline                 | :white_check_mark:
+RMB    | Relative Move Baseline                 | :white_check_mark:
 BLN    | Begin Line                             | :x:
 STO    | Set Text Orientation                   | :x:
 UCT    | Unicode Complex Text                   | :x:
