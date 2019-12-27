@@ -99,7 +99,7 @@ public final class PtocaParser {
     private static void parseControlSequence(
             final byte[] ptocaData,
             final AfpDataInputStream reader,
-            final PtocaControlSequenceHandler handler) throws AfpException {
+            final PtocaControlSequenceHandler handler) throws IOException, AfpException {
 
         boolean chainedSequence = true;
         while (chainedSequence && reader.bytesAvailable() > 0) {
