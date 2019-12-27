@@ -46,9 +46,12 @@ public final class PtocaControlSequenceFactory {
         switch (functionType) {
         case PtocaControlSequenceFunctionType.AMB_CHAINED:
         case PtocaControlSequenceFunctionType.AMB_UNCHAINED:
-            return new AbsoluteMoveBaselineControlSequence(functionType, data);
+            return new AbsoluteMoveBaseline(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.AMI:
+        case PtocaControlSequenceFunctionType.AMI_CHAINED:
+        case PtocaControlSequenceFunctionType.AMI_UNCHAINED:
+            return new AbsoluteMoveInline(functionType, data);
+
             //        case PtocaControlSequenceFunctionType.BLN:
             //        case PtocaControlSequenceFunctionType.BSU:
             //        case PtocaControlSequenceFunctionType.DBR:
@@ -56,8 +59,15 @@ public final class PtocaControlSequenceFactory {
             //        case PtocaControlSequenceFunctionType.ESU:
             //        case PtocaControlSequenceFunctionType.NOP:
             //        case PtocaControlSequenceFunctionType.OVS:
-            //        case PtocaControlSequenceFunctionType.RMB:
-            //        case PtocaControlSequenceFunctionType.RMI:
+
+        case PtocaControlSequenceFunctionType.RMB_CHAINED:
+        case PtocaControlSequenceFunctionType.RMB_UNCHAINED:
+            return new RelativeMoveBaseline(functionType, data);
+
+        case PtocaControlSequenceFunctionType.RMI_CHAINED:
+        case PtocaControlSequenceFunctionType.RMI_UNCHAINED:
+            return new RelativeMoveInline(functionType, data);
+
             //        case PtocaControlSequenceFunctionType.RPS:
             //        case PtocaControlSequenceFunctionType.SBI:
             //        case PtocaControlSequenceFunctionType.SCF:

@@ -22,15 +22,15 @@ import de.textmode.afpbox.common.ByteUtils;
 /**
  * The Absolute Move Baseline control sequence moves the baseline coordinate relative to the I-axis.
  */
-public final class AbsoluteMoveBaselineControlSequence extends PtocaControlSequence {
+public final class AbsoluteMoveBaseline extends PtocaControlSequence {
 
     /**
-     * Constructs the {@link AbsoluteMoveBaselineControlSequence}.
+     * Constructs the {@link AbsoluteMoveBaseline}.
      *
      * @param functionType  the integer value of the PTOCA control sequence function type.
      * @param data          the raw data of the PTOCA control sequence.
      */
-    AbsoluteMoveBaselineControlSequence(final int functionType, final byte[] data) throws AfpException {
+    AbsoluteMoveBaseline(final int functionType, final byte[] data) throws AfpException {
         super(functionType, data, "AMB", 4);
     }
 
@@ -40,6 +40,6 @@ public final class AbsoluteMoveBaselineControlSequence extends PtocaControlSeque
      * @return the displacement in the B-direction from the I-axis of the object.
      */
     public int getDisplacement() {
-        return ByteUtils.toInteger(this.getData(), 0, 2);
+        return ByteUtils.toUnsignedInteger16(this.getData(), 2);
     }
 }
