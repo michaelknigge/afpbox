@@ -2,7 +2,6 @@ package de.textmode.afpbox;
 
 import org.apache.commons.codec.binary.Hex;
 
-import de.textmode.afpbox.common.ByteUtils;
 import de.textmode.afpbox.ptoca.PtocaControlSequence;
 import junit.framework.TestCase;
 
@@ -22,7 +21,7 @@ public final class PtocaParserTest extends TestCase implements PtocaControlSeque
         this.sb.append(" off=");
         this.sb.append(off);
 
-        final int len = ByteUtils.toInteger(data, off, 1);
+        final int len = data[off];
         this.sb.append(" len=");
         this.sb.append(len);
         this.sb.append(" data=");

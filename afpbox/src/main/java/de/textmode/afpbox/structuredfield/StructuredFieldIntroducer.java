@@ -57,7 +57,7 @@ public final class StructuredFieldIntroducer {
         assert data[0] == 0x5A;
 
         this.flagByte = data[OFFSET_TO_FLAG_BYTE];
-        this.sfid = ByteUtils.toInteger(data, OFFSET_TO_SFID, 3);
+        this.sfid = ByteUtils.toUnsignedInteger24(data, OFFSET_TO_SFID);
     }
 
     /**
@@ -120,10 +120,10 @@ public final class StructuredFieldIntroducer {
         final byte[] data = this.record.getData();
         final int fieldLength = this.getStructuredFieldLength();
 
-        final int lastByte = ByteUtils.toInteger(data, fieldLength, 1);
+        final int lastByte = ByteUtils.toUnsignedByte(data, fieldLength);
 
         if (lastByte == 0x00) {
-            paddingLength = ByteUtils.toInteger(data, fieldLength - 2, 2);
+            paddingLength = ByteUtils.toUnsignedInteger16(data, fieldLength - 2);
 
             if (paddingLength < 3 || paddingLength > 32759) {
                 throw new AfpException(
@@ -150,7 +150,7 @@ public final class StructuredFieldIntroducer {
             return STRUCTURED_FIELD_INTRODUCER_LENGTH;
         }
 
-        final int extensionLength = ByteUtils.toInteger(this.record.getData(), 9, 1);
+        final int extensionLength = ByteUtils.toByte(this.record.getData(), 9);
         if (extensionLength < 1) {
             throw new AfpException(
                     "Record at offset " + this.record.getOffset()
@@ -168,7 +168,7 @@ public final class StructuredFieldIntroducer {
      * @throws AfpException if the record specifies an invalid length.
      */
     public int getStructuredFieldLength() throws AfpException {
-        final int length = ByteUtils.toInteger(this.record.getData(), 1, 2);
+        final int length = ByteUtils.toUnsignedInteger16(this.record.getData(), 1);
         if (length < 8 || length > 32767) {
             throw new AfpException(
                     "Record at offset " + this.record.getOffset()

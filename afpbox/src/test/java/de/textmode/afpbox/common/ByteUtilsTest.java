@@ -16,41 +16,147 @@ package de.textmode.afpbox.common;
  * limitations under the License.
  */
 
-import java.security.InvalidParameterException;
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
 
+import de.textmode.afpbox.io.AfpDataInputStream;
 import junit.framework.TestCase;
 
 /**
  * Unit-Tests for the class {@link ByteUtilsTest}.
  */
 public final class ByteUtilsTest extends TestCase {
-
     /**
-     * Checks the toInteger() method.
+     * Helper Method for creating a {@link AfpDataInputStream}.
      */
-    public void testToInteger() {
-        final byte[] src = new byte[] { 0x00, 0x01, 0x02, 0x03, 0x04, (byte) 0x80, (byte)0xFF };
-
-        assertEquals(ByteUtils.toInteger(src, 0, 0), 0);
-        assertEquals(ByteUtils.toInteger(src, 0, 1), 0);
-        assertEquals(ByteUtils.toInteger(src, 0, 2), 0x01);
-
-        assertEquals(ByteUtils.toInteger(src, 1, 1), 0x01);
-        assertEquals(ByteUtils.toInteger(src, 1, 2), 0x0102);
-
-        assertEquals(ByteUtils.toInteger(src, 1, 3), 0x010203);
-        assertEquals(ByteUtils.toInteger(src, 1, 4), 0x01020304);
-
-        // Note... toInteger() is always UNSIGNED!
-        assertEquals(ByteUtils.toInteger(src, 5, 1), 0x80);
-        assertEquals(ByteUtils.toInteger(src, 6, 1), 0xFF);
-
-        try {
-            ByteUtils.toInteger(src, 0, 5);
-            fail("Should fail because tried to parse 5 bytes (max 4 allowed)");
-        } catch (final InvalidParameterException e) {
-            assertTrue(e.getMessage().contains("Invalid length"));
-        }
+    private static byte[] toByteArray(final String hexString) throws DecoderException {
+        return Hex.decodeHex(hexString.toCharArray());
     }
 
+    /**
+     * Checks reading unsigned 8 bit values.
+     */
+    public void testReadUnsignedByte() throws Exception {
+        assertEquals(0, ByteUtils.toUnsignedByte(toByteArray("00"), 0));
+        assertEquals(1, ByteUtils.toUnsignedByte(toByteArray("01"), 0));
+        assertEquals(128, ByteUtils.toUnsignedByte(toByteArray("80"), 0));
+        assertEquals(255, ByteUtils.toUnsignedByte(toByteArray("FF"), 0));
+
+        assertEquals(1, ByteUtils.toUnsignedByte(toByteArray("0001"), 1));
+        assertEquals(255, ByteUtils.toUnsignedByte(toByteArray("00FF"), 1));
+    }
+
+    /**
+     * Checks reading signed 8 bit values.
+     */
+    public void testReadSignedByte() throws Exception {
+        assertEquals(0, ByteUtils.toByte(toByteArray("00"), 0));
+        assertEquals(1, ByteUtils.toByte(toByteArray("01"), 0));
+        assertEquals(-128, ByteUtils.toByte(toByteArray("80"), 0));
+        assertEquals(-1, ByteUtils.toByte(toByteArray("FF"), 0));
+
+        assertEquals(1, ByteUtils.toByte(toByteArray("0001"), 1));
+        assertEquals(-1, ByteUtils.toByte(toByteArray("00FF"), 1));
+    }
+
+    /**
+     * Checks reading unsigned 16 bit values.
+     */
+    public void testReadUnsignedInteger16() throws Exception {
+        assertEquals(0, ByteUtils.toUnsignedInteger16(toByteArray("0000"), 0));
+        assertEquals(1, ByteUtils.toUnsignedInteger16(toByteArray("0001"), 0));
+        assertEquals(512, ByteUtils.toUnsignedInteger16(toByteArray("0200"), 0));
+        assertEquals(50176, ByteUtils.toUnsignedInteger16(toByteArray("C400"), 0));
+        assertEquals(65535, ByteUtils.toUnsignedInteger16(toByteArray("FFFF"), 0));
+
+        assertEquals(1, ByteUtils.toUnsignedInteger16(toByteArray("000001"), 1));
+        assertEquals(50176, ByteUtils.toUnsignedInteger16(toByteArray("00C400"), 1));
+    }
+
+    /**
+     * Checks reading signed 16 bit values.
+     */
+    public void testReadSignedInteger16() throws Exception {
+        assertEquals(12345, ByteUtils.toInteger16(toByteArray("3039"), 0));
+        assertEquals(12288, ByteUtils.toInteger16(toByteArray("3000"), 0));
+        assertEquals(1024, ByteUtils.toInteger16(toByteArray("0400"), 0));
+        assertEquals(512, ByteUtils.toInteger16(toByteArray("0200"), 0));
+        assertEquals(1, ByteUtils.toInteger16(toByteArray("0001"), 0));
+        assertEquals(0, ByteUtils.toInteger16(toByteArray("0000"), 0));
+        assertEquals(-1, ByteUtils.toInteger16(toByteArray("FFFF"), 0));
+        assertEquals(-512, ByteUtils.toInteger16(toByteArray("FE00"), 0));
+        assertEquals(-1024, ByteUtils.toInteger16(toByteArray("FC00"), 0));
+        assertEquals(-12288, ByteUtils.toInteger16(toByteArray("D000"), 0));
+        assertEquals(-12345, ByteUtils.toInteger16(toByteArray("CFC7"), 0));
+
+        assertEquals(1024, ByteUtils.toInteger16(toByteArray("000400"), 1));
+        assertEquals(-1, ByteUtils.toInteger16(toByteArray("00FFFF"), 1));
+        assertEquals(-12288, ByteUtils.toInteger16(toByteArray("00D000"), 1));
+    }
+
+    /**
+     * Checks reading unsigned 24 bit values.
+     */
+    public void testReadUnsignedInteger24() throws Exception {
+        assertEquals(0, ByteUtils.toUnsignedInteger24(toByteArray("000000"), 0));
+        assertEquals(1, ByteUtils.toUnsignedInteger24(toByteArray("000001"), 0));
+        assertEquals(512, ByteUtils.toUnsignedInteger24(toByteArray("000200"), 0));
+        assertEquals(12845056, ByteUtils.toUnsignedInteger24(toByteArray("C40000"), 0));
+        assertEquals(16777215, ByteUtils.toUnsignedInteger24(toByteArray("FFFFFF"), 0));
+
+        assertEquals(1, ByteUtils.toUnsignedInteger24(toByteArray("00000001"), 1));
+        assertEquals(12845056, ByteUtils.toUnsignedInteger24(toByteArray("00C40000"), 1));
+    }
+
+    /**
+     * Checks reading signed 24 bit values.
+     */
+    public void testReadSignedInteger24() throws Exception {
+        assertEquals(0, ByteUtils.toInteger24(toByteArray("000000"), 0));
+        assertEquals(1, ByteUtils.toInteger24(toByteArray("000001"), 0));
+        assertEquals(512, ByteUtils.toInteger24(toByteArray("000200"), 0));
+        assertEquals(-3932160, ByteUtils.toInteger24(toByteArray("C40000"), 0));
+        assertEquals(-1, ByteUtils.toInteger24(toByteArray("FFFFFF"), 0));
+
+        assertEquals(1, ByteUtils.toInteger24(toByteArray("00000001"), 1));
+        assertEquals(-3932160, ByteUtils.toInteger24(toByteArray("00C40000"), 1));
+    }
+
+    /**
+     * Checks reading unsigned 32 bit values.
+     */
+    public void testReadUnsignedInteger32() throws Exception {
+        assertEquals(12345, ByteUtils.toUnsignedInteger32(toByteArray("00003039"), 0));
+        assertEquals(12288, ByteUtils.toUnsignedInteger32(toByteArray("00003000"), 0));
+        assertEquals(1024, ByteUtils.toUnsignedInteger32(toByteArray("00000400"), 0));
+        assertEquals(512, ByteUtils.toUnsignedInteger32(toByteArray("00000200"), 0));
+        assertEquals(1, ByteUtils.toUnsignedInteger32(toByteArray("00000001"), 0));
+        assertEquals(0, ByteUtils.toUnsignedInteger32(toByteArray("00000000"), 0));
+        assertEquals(4294967295L, ByteUtils.toUnsignedInteger32(toByteArray("FFFFFFFF"), 0));
+        assertEquals(4294966784L, ByteUtils.toUnsignedInteger32(toByteArray("FFFFFE00"), 0));
+        assertEquals(4294966272L, ByteUtils.toUnsignedInteger32(toByteArray("FFFFFC00"), 0));
+
+        assertEquals(1024, ByteUtils.toUnsignedInteger32(toByteArray("0000000400"), 1));
+        assertEquals(4294966784L, ByteUtils.toUnsignedInteger32(toByteArray("00FFFFFE00"), 1));
+    }
+
+    /**
+     * Checks reading signed 32 bit values.
+     */
+    public void testReadSignedInteger32() throws Exception {
+        assertEquals(12345, ByteUtils.toInteger32(toByteArray("00003039"), 0));
+        assertEquals(12288, ByteUtils.toInteger32(toByteArray("00003000"), 0));
+        assertEquals(1024, ByteUtils.toInteger32(toByteArray("00000400"), 0));
+        assertEquals(512, ByteUtils.toInteger32(toByteArray("00000200"), 0));
+        assertEquals(1, ByteUtils.toInteger32(toByteArray("00000001"), 0));
+        assertEquals(0, ByteUtils.toInteger32(toByteArray("00000000"), 0));
+        assertEquals(-1, ByteUtils.toInteger32(toByteArray("FFFFFFFF"), 0));
+        assertEquals(-512, ByteUtils.toInteger32(toByteArray("FFFFFE00"), 0));
+        assertEquals(-1024, ByteUtils.toInteger32(toByteArray("FFFFFC00"), 0));
+        assertEquals(-12288, ByteUtils.toInteger32(toByteArray("FFFFD000"), 0));
+        assertEquals(-12345, ByteUtils.toInteger32(toByteArray("FFFFCFC7"), 0));
+
+        assertEquals(512, ByteUtils.toInteger32(toByteArray("0000000200"), 1));
+        assertEquals(-1024, ByteUtils.toInteger32(toByteArray("00FFFFFC00"), 1));
+    }
 }

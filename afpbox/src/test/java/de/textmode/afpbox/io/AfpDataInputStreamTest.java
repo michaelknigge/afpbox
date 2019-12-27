@@ -203,5 +203,4 @@ public final class AfpDataInputStreamTest extends TestCase {
         assertTrue((Arrays.equals(Hex.decodeHex("00".toCharArray()), is.readBytes(0, 1))));
         assertEquals(9, is.bytesAvailable());
     }
-
 }

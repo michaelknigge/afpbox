@@ -35,6 +35,7 @@ import java.nio.charset.Charset;
  * limitations under the License.
  */
 import de.textmode.afpbox.AfpException;
+import de.textmode.afpbox.common.ByteUtils;
 
 /**
  * The {@link AfpDataInputStream} is not really an DataInputStream, but it follows the
@@ -223,7 +224,7 @@ public final class AfpDataInputStream {
     public int readUnsignedByte() throws AfpException {
         this.checkForAvailableBytes(1);
 
-        final int result = this.data[this.offset] & 0xFF;
+        final int result = ByteUtils.toUnsignedByte(this.data, this.offset);
 
         ++this.offset;
         --this.bytesLeft;
@@ -241,7 +242,7 @@ public final class AfpDataInputStream {
     public int readByte() throws AfpException {
         this.checkForAvailableBytes(1);
 
-        final int result = this.data[this.offset];
+        final int result = ByteUtils.toByte(this.data, this.offset);
 
         ++this.offset;
         --this.bytesLeft;
@@ -259,7 +260,7 @@ public final class AfpDataInputStream {
     public int readUnsignedInteger16() throws AfpException {
         this.checkForAvailableBytes(2);
 
-        final int result = ((this.data[this.offset] & 0xFF) << 8) | (this.data[this.offset + 1] & 0xFF);
+        final int result = ByteUtils.toUnsignedInteger16(this.data, this.offset);
 
         this.offset += 2;
         this.bytesLeft -= 2;
@@ -277,7 +278,7 @@ public final class AfpDataInputStream {
     public int readInteger16() throws AfpException {
         this.checkForAvailableBytes(2);
 
-        final int result = (this.data[this.offset] << 8) | (this.data[this.offset + 1] & 0xFF);
+        final int result = ByteUtils.toInteger16(this.data, this.offset);
 
         this.offset += 2;
         this.bytesLeft -= 2;
@@ -295,10 +296,7 @@ public final class AfpDataInputStream {
     public int readUnsignedInteger24() throws AfpException {
         this.checkForAvailableBytes(3);
 
-        final int result =
-                ((this.data[this.offset] & 0xFF) << 16)
-                | ((this.data[this.offset + 1] & 0xFF) << 8)
-                | (this.data[this.offset + 2] & 0xFF);
+        final int result = ByteUtils.toUnsignedInteger24(this.data, this.offset);
 
         this.offset += 3;
         this.bytesLeft -= 3;
@@ -316,10 +314,7 @@ public final class AfpDataInputStream {
     public int readInteger24() throws AfpException {
         this.checkForAvailableBytes(3);
 
-        final int result =
-                (this.data[this.offset] << 16)
-                | ((this.data[this.offset + 1] & 0xFF) << 8)
-                | (this.data[this.offset + 2] & 0xFF);
+        final int result = ByteUtils.toInteger24(this.data, this.offset);
 
         this.offset += 3;
         this.bytesLeft -= 3;
@@ -337,11 +332,7 @@ public final class AfpDataInputStream {
     public long readUnsignedInteger32() throws AfpException {
         this.checkForAvailableBytes(4);
 
-        final long result =
-                ((long) (this.data[this.offset] & 0xFF) << 24)
-                | (long) (this.data[this.offset + 1] & 0xFF) << 16
-                | (long) (this.data[this.offset + 2] & 0xFF) << 8
-                | (long) this.data[this.offset + 3] & 0xFF;
+        final long result = ByteUtils.toUnsignedInteger32(this.data, this.offset);
 
         this.offset += 4;
         this.bytesLeft -= 4;
@@ -359,11 +350,7 @@ public final class AfpDataInputStream {
     public int readInteger32() throws AfpException {
         this.checkForAvailableBytes(4);
 
-        final int result =
-                (this.data[this.offset] << 24)
-                | ((this.data[this.offset + 1] & 0xFF) << 16)
-                | ((this.data[this.offset + 2] & 0xFF) << 8)
-                | (this.data[this.offset + 3] & 0xFF);
+        final int result = ByteUtils.toInteger32(this.data, this.offset);
 
         this.offset += 4;
         this.bytesLeft -= 4;
