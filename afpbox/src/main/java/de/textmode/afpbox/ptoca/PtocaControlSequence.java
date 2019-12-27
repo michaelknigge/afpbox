@@ -56,7 +56,7 @@ public abstract class PtocaControlSequence {
         this.functionType = functionType;
         this.data = data;
 
-        if (this.getData().length + 2 != expectedLength) {
+        if (this.getData().length != expectedLength) {
             throw new AfpException("PTOCA control sequence " + name + " has invalid length of " + this.getData().length + " bytes (expected " + expectedLength + " bytes)");
         }
     }
@@ -80,9 +80,9 @@ public abstract class PtocaControlSequence {
     }
 
     /**
-     * Returns the data of the PTOCA control sequence (all bytes after the length and function type byte.
+     * Returns the data of the PTOCA control sequence.
      *
-     * @return the data of the PTOCA control sequence
+     * @return the data of the PTOCA control sequence.
      */
     protected byte[] getData() {
         return this.data;
