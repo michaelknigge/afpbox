@@ -414,14 +414,14 @@ Hint: If you use [Eclipse](https://eclipse.org/) as your IDE, you can simply run
 # Manuals
 The following reference materials were used to implement this parser:
 
-* [MO:DCA Reference (Mixed Object Document Content Architecture Reference)](http://www.afpcinc.org/wp-content/uploads/2018/01/MODCA-Reference-09.pdf)
-* [GOCA Reference (Graphics Object Content Architecture for AFP Reference)](http://www.afpcinc.org/wp-content/uploads/2018/01/AFP-GOCA-Reference-Graphics-Object-Content-Architecture-for-AFP-Reference.pdf)
-* [BCOCA Reference (Bar Code Object Content Architecture Reference)](http://50.87.249.81/~afpcinc1/wp-content/uploads/2016/08/BCOCA-Reference-09.pdf)
-* [CMOCA Reference (Color Management Object Content Architecture Reference)](http://50.87.249.81/~afpcinc1/wp-content/uploads/2016/08/cmoca_reference-01.pdf)
-* [FOCA Reference (Font Object Content Architecture Reference)](http://50.87.249.81/~afpcinc1/wp-content/uploads/2016/08/FOCA-Reference-Font-Object-Content-Architecture-Reference.pdf)
-* [IOCA Reference (Image Object Content Architecture Reference)](http://50.87.249.81/~afpcinc1/wp-content/uploads/2016/08/IOCA-Reference-Image-Object-Content-Architecture-Reference.pdf)
-* [MOCA Reference (Metadata Object Content Architecture Reference)](http://50.87.249.81/~afpcinc1/wp-content/uploads/2016/08/MOCA-Reference-Metadata-Object-Content-Architecture-Reference.pdf)
-* [PTOCA Reference (Presentation Text Object Content Architecture Reference)](http://50.87.249.81/~afpcinc1/wp-content/uploads/2016/08/PTOCA-Reference-Presentation-Text-Object-Content-Architecture-Reference.pdf)
-* [Line Data Reference (Programming Guide and Line Data Reference)](http://www.afpcinc.org/wp-content/uploads/2018/02/LineData-Reference-05.pdf)
+* [MO:DCA Reference (Mixed Object Document Content Architecture Reference)](https://www.afpconsortium.org/uploads/1/1/8/4/118458708/modca-reference-09.pdf)
+* [GOCA Reference (Graphics Object Content Architecture for AFP Reference)](https://www.afpconsortium.org/uploads/1/1/8/4/118458708/afp-goca-reference-03.pdf)
+* [BCOCA Reference (Bar Code Object Content Architecture Reference)](https://www.afpconsortium.org/uploads/1/1/8/4/118458708/bcoca-reference-09.pdf)
+* [CMOCA Reference (Color Management Object Content Architecture Reference)](https://www.afpconsortium.org/uploads/1/1/8/4/118458708/cmoca-reference-01.pdf)
+* [FOCA Reference (Font Object Content Architecture Reference)](https://www.afpconsortium.org/uploads/1/1/8/4/118458708/foca-reference-06.pdf)
+* [IOCA Reference (Image Object Content Architecture Reference)](https://www.afpconsortium.org/uploads/1/1/8/4/118458708/ioca-reference-07.pdf)
+* [MOCA Reference (Metadata Object Content Architecture Reference)](https://www.afpconsortium.org/uploads/1/1/8/4/118458708/moca-reference-01.pdf)
+* [PTOCA Reference (Presentation Text Object Content Architecture Reference)](https://www.afpconsortium.org/uploads/1/1/8/4/118458708/ptoca-reference-03.pdf)
+* [Line Data Reference (Programming Guide and Line Data Reference)](https://www.afpconsortium.org/uploads/1/1/8/4/118458708/linedata-reference-05.pdf)
 
-All those documents are available at the web site of the [AFP Consortium](http://www.afpcinc.org)
+All those documents are available at the web site of the [AFP Consortium](https://www.afpconsortium.org)
