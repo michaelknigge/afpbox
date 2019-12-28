@@ -14,7 +14,7 @@ Because afpbox is available at [jcenter](https://bintray.com/bintray/jcenter) it
 <dependency>
   <groupId>de.textmode.afpbox</groupId>
   <artifactId>afpbox</artifactId>
-  <version>0.2</version>
+  <version>0.3</version>
   <type>pom</type>
 </dependency>
 ```
@@ -23,7 +23,7 @@ If you use Gradle, add this:
 
 ```
 dependencies {
-    compile 'de.textmode.afpbox:afpbox:0.2'
+    compile 'de.textmode.afpbox:afpbox:0.3'
 }
 ```
 
