@@ -2,9 +2,7 @@
 
 Java library for parsing [AFP](https://en.wikipedia.org/wiki/Advanced_Function_Presentation) ([MO:DCA](https://en.wikipedia.org/wiki/MODCA)) printer data streams.
 
-**NOTE: This project started in April 2018 and is nearly useless in its current state. The goal is to make afpbox a
-lightweight, fast and robust AFP parser. But keep in mind that this is a hobbyist project. So I guess
-it will take up to two years to make afpbox a library that is of any use.**
+**NOTE: This project is still work in progress...**
 
 # Dependencies
 afpbox has no runtime dependencies on other libraries. This was a design decision and will (hopefully) never change.
