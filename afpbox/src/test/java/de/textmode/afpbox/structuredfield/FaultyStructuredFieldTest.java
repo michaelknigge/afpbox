@@ -21,7 +21,7 @@ import org.apache.commons.codec.binary.Hex;
 /**
  * Unit-Tests for the class {@link FaultyStructuredField}.
  */
-public class FaultyStructuredFieldTest extends StructuredFieldTest<FaultyStructuredField> {
+public final class FaultyStructuredFieldTest extends StructuredFieldTest<FaultyStructuredField> {
 
     public void testFaultyStructuredField() throws Exception {
         final String sfi = "5A0010D3A8A5FF0000";
