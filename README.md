@@ -207,7 +207,7 @@ MPO    | X'D3ABD8' | Map Page Overlay                       | :x:
 MPS    | X'D3B15F' | Map Page Segment                       | :x:
 MPT    | X'D3AB9B' | Map Presentation Text                  | :x:
 MSU    | X'D3ABEA' | Map Suppression                        | :x:
-NOP    | X'D3EEEE' | No Operation                           | :x:
+NOP    | X'D3EEEE' | No Operation                           | :white_check_mark:
 OBD    | X'D3A66B' | Object Area Descriptor                 | :x:
 OBP    | X'D3AC6B' | Object Area Position                   | :x:
 OCD    | X'D3EE92' | Object Container Data                  | :x:
