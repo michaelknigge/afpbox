@@ -82,36 +82,4 @@ public final class ByteUtils {
                 | ((src[srcPos + 2] & 0xFF) << 8)
                 | (src[srcPos + 3] & 0xFF);
     }
-
-    //    /**
-    //     * Converts up to four bytes from a byte array to an unsigned integer (big endian format).
-    //     *
-    //     * @param src      the source array
-    //     * @param srcPos   starting position in the source array
-    //     * @param length   the number of array elements to be converted
-    //     *
-    //     * @return the integer value of the converted bytes.
-    //     */
-    //    public static int toInteger(final byte[] src, final int srcPos, final int length) {
-    //        switch (length) {
-    //        case 0:
-    //            return 0;
-    //        case 1:
-    //            return src[srcPos] & 0xFF;
-    //        case 2:
-    //            return ((src[srcPos] & 0xFF) << 8)
-    //                    + (src[srcPos + 1] & 0xFF);
-    //        case 3:
-    //            return ((src[srcPos] & 0xFF) << 16)
-    //                    + ((src[srcPos + 1] & 0xFF) << 8)
-    //                    + (src[srcPos + 2] & 0xFF);
-    //        case 4:
-    //            return ((src[srcPos] & 0xFF) << 24)
-    //                    + ((src[srcPos + 1] & 0xFF) << 16)
-    //                    + ((src[srcPos + 2] & 0xFF) << 8)
-    //                    + (src[srcPos + 3] & 0xFF);
-    //        default:
-    //            throw new InvalidParameterException("Invalid length for toInteger(): " + length); //$NON-NLS-1$
-    //        }
-    //    }
 }
