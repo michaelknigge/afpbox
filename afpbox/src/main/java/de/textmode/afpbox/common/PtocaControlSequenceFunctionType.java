@@ -94,8 +94,7 @@ public final class PtocaControlSequenceFunctionType {
 
     /**
      * Glyph Advance Run (unchained).
-     * <p>
-     * <b>Note: Each GAR control sequence must be chained to a preceding GIR control sequence.
+     * <p><b>Note: Each GAR control sequence must be chained to a preceding GIR control sequence.
      * It can be followed by a chained GOR, GIR, or UCT control sequence. If it is followed
      * by a different control sequence, the GAR terminates the GLC chain.</b>
      */
@@ -103,8 +102,7 @@ public final class PtocaControlSequenceFunctionType {
 
     /**
      * Glyph Advance Run (chained).
-     * <p>
-     * <b>Note: Each GAR control sequence must be chained to a preceding GIR control sequence.
+     * <p><b>Note: Each GAR control sequence must be chained to a preceding GIR control sequence.
      * It can be followed by a chained GOR, GIR, or UCT control sequence. If it is followed
      * by a different control sequence, the GAR terminates the GLC chain.</b>
      */
@@ -112,8 +110,7 @@ public final class PtocaControlSequenceFunctionType {
 
     /**
      * Glyph ID Run (chained).
-     * <p>
-     * <b>Note: A GIR control sequence must be chained to a GLC, if in the first grouping, or
+     * <p><b>Note: A GIR control sequence must be chained to a GLC, if in the first grouping, or
      * to a preceding GAR or GOR, if in subsequent groupings. It must be followed by a chained
      * GAR that contains a glyph advance for each glyph ID in this control sequence.</b>
      */
@@ -121,8 +118,7 @@ public final class PtocaControlSequenceFunctionType {
 
     /**
      * Glyph Layout Control (chained).
-     * <p>
-     * <b>Note: The GLC control sequence must be followed by one or more GIR/GAR[/GOR] groupings.</b>
+     * <p><b>Note: The GLC control sequence must be followed by one or more GIR/GAR[/GOR] groupings.</b>
      */
     public static final int GLC_CHAINED = 0x6D;
 
@@ -288,8 +284,7 @@ public final class PtocaControlSequenceFunctionType {
 
     /**
      * Unicode Complex Text (unchained).
-     * <p>
-     * <b>Note: The UCT control sequence always terminates chaining!</b>
+     * <p><b>Note: The UCT control sequence always terminates chaining!</b>
      */
     public static final int UCT_UNCHAINED = 0x6A;
 

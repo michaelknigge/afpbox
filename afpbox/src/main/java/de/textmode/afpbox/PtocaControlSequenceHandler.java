@@ -31,13 +31,14 @@ public interface PtocaControlSequenceHandler {
      * is backed by the byte[] that has been passed to the {@link PtocaParser}. So with this operation it is
      * possible to modify parsed PTOCA controls sequence.
      *
-     * @param functionType   the PTOCA control sequence function type. It is one of the constants of {@link PtocaControlSequenceFunctionType}.
+     * @param functionType   the PTOCA control sequence function type. It is one of the constants
+     *                       of {@link PtocaControlSequenceFunctionType}.
      * @param data           the raw data of the PTOCA control sequence. Note that the byte[] contains the function type
      *                       and the length in the first two bytes.
      * @param off            offset within the byte[] where the PTOCA control sequence starts.
      *
      * @return true if the PTOCA control sequence should be parsed. After the PTOCA control sequence has been
-     * parsed the method {@link #handleControSequence(PtocaControlSequence)} gets invoked.
+     *     parsed the method {@link #handleControSequence(PtocaControlSequence)} gets invoked.
      */
     public boolean handleControSequence(final int functionType, final byte[] data, final int off)
             throws IOException, AfpException;

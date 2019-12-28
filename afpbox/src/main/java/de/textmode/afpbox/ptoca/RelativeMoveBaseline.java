@@ -37,10 +37,10 @@ public final class RelativeMoveBaseline extends PtocaControlSequence {
 
     /**
      * Returns the increment in the B-direction from m the current baseline
-     * coordinate position to a new baseline coordinate position
+     * coordinate position to a new baseline coordinate position.
      *
      * @return increment in the B-direction from m the current baseline
-     * coordinate position to a new baseline coordinate position
+     *     coordinate position to a new baseline coordinate position.
      */
     public int getIncrement() {
         return ByteUtils.toInteger16(this.getData(), 2);

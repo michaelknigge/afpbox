@@ -80,8 +80,8 @@ public final class PtocaParser {
                     parseControlSequence(data, reader, handler);
                 } else {
                     throw new AfpException(
-                            "A control sequence class byte (value 0xD3) was " +
-                                    "expected but a byte with value " + readByte + " (decimal) was read.");
+                            "A control sequence class byte (value 0xD3) was "
+                            + "expected but a byte with value " + readByte + " (decimal) was read.");
                 }
             } else {
                 if (codePointsOffset == -1) {

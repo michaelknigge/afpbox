@@ -67,7 +67,7 @@ public final class PtocaParserTest extends TestCase implements PtocaControlSeque
     }
 
     /**
-     * Corner case - parse an empty data stream (just the 0x2BD3 and nothing m
+     * Corner case - parse an empty data stream (just the 0x2BD3 and nothing more.
      */
     public void testEmpty() throws Exception {
         final byte[] data = new byte[] { 0x2B, (byte) 0xD3 };

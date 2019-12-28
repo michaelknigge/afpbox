@@ -37,10 +37,10 @@ public final class RelativeMoveInline extends PtocaControlSequence {
 
     /**
      * Returns the increment in the I-direction from m the current inline
-     * coordinate position to a new inline coordinate position
+     * coordinate position to a new inline coordinate position.
      *
      * @return increment in the I-direction from m the current inline
-     * coordinate position to a new inline coordinate position
+     *     coordinate position to a new inline coordinate position.
      */
     public int getIncrement() {
         return ByteUtils.toInteger16(this.getData(), 2);

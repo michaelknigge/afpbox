@@ -57,7 +57,9 @@ public abstract class PtocaControlSequence {
         this.data = data;
 
         if (this.getData().length != expectedLength) {
-            throw new AfpException("PTOCA control sequence " + name + " has invalid length of " + this.getData().length + " bytes (expected " + expectedLength + " bytes)");
+            throw new AfpException(
+                    "PTOCA control sequence " + name + " has invalid length of "
+                    + this.getData().length + " bytes (expected " + expectedLength + " bytes)");
         }
     }
 
