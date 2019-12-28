@@ -45,7 +45,7 @@ public abstract class PtocaControlSequence {
      * @param name the name (abbreviation like "AMB" or "SCFL") of the PTOCA control sequence.
      * @param expectedLength complete expected length of the PTOCA control sequence.
      *
-     * @throws AfpException
+     * @throws AfpException if the raw data has not the expected length.
      */
     PtocaControlSequence(
             final int functionType,

@@ -5,8 +5,7 @@ import org.apache.commons.codec.binary.Hex;
 /**
  * Unit-Tests for the class {@link UnknownControlSequence}.
  */
-public final class UnknownControlSequenceTest
-extends PtocaControlSequenceTest<UnknownControlSequence> {
+public final class UnknownControlSequenceTest extends PtocaControlSequenceTest<UnknownControlSequence> {
 
     /**
      * Tries to parse a control sequence which is unknown (function type 0xFE).

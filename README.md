@@ -38,7 +38,7 @@ The `StandardRecordReader` is probably the `RecordReader` of your choice. It rea
 record and determines the record length from the following two bytes.
 
 The `MvsRecordReader` expects that every AFP record is prefixed with four bytes. The record length is determined from the first two bytes. The following
-two bytes are ignored. This record format corresponds to the record format VB on z/OS (formerly known as OS/390, which was formerly known as MVS.)
+two bytes are ignored. This record format corresponds to the record format VB on z/OS (formerly known as OS/390, which was formerly known as MVS).
 
 Now when you have a `RecordReader` you further need a `RecordHandler`. The main idea behind the `RecordHandler` is that the application can control
 which structured fields have to be parsed and which not. You have to implement a `RecordHandler` according to your needs.
