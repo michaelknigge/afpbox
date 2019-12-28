@@ -26,7 +26,7 @@ import de.textmode.afpbox.io.Record;
  */
 public final class StructuredFieldIntroducer {
 
-    public static final int STRUCTURED_FIELD_INTRODUCER_LENGTH = 7;
+    public static final int STRUCTURED_FIELD_INTRODUCER_LENGTH = 9;
 
     private static final int BIT0 = 0x80; // 1000 0000
     private static final int BIT2 = 0x20; // 0010 0000
@@ -139,7 +139,7 @@ public final class StructuredFieldIntroducer {
 
     /**
      * Returns the length of the Structured Field Introducer. The regular length of the Structured Field
-     * Introducer is seven bytes, but it may be longer (8 to 263 bytes) if an extension is present.
+     * Introducer is nine bytes, but it may be longer (10 to 263 bytes) if an extension is present.
      *
      * @return length of the Structured Field Introducer.
      *

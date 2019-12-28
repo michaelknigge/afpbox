@@ -38,7 +38,7 @@ public final class StructuredFieldIntroducerTest extends TestCase {
         assertFalse(sfi.hasPaddingData());
         assertEquals(sfi.getPaddingDataLength(), 0);
         assertEquals(sfi.getStructuredFieldLength(), 8);
-        assertEquals(sfi.getStructuredFieldIntroducerLength(), 7);
+        assertEquals(sfi.getStructuredFieldIntroducerLength(), 9);
         assertEquals(sfi.getStructuredFieldIdentifier(), StructuredFieldIdentifier.BPF);
     }
 
@@ -55,7 +55,7 @@ public final class StructuredFieldIntroducerTest extends TestCase {
         assertTrue(sfi.hasPaddingData());
         assertEquals(sfi.getPaddingDataLength(), 2);
         assertEquals(sfi.getStructuredFieldLength(), 10);
-        assertEquals(sfi.getStructuredFieldIntroducerLength(), 7);
+        assertEquals(sfi.getStructuredFieldIntroducerLength(), 9);
         assertEquals(sfi.getStructuredFieldIdentifier(), StructuredFieldIdentifier.BPF);
     }
 
@@ -72,7 +72,7 @@ public final class StructuredFieldIntroducerTest extends TestCase {
         assertTrue(sfi.hasPaddingData());
         assertEquals(sfi.getPaddingDataLength(), 255); // To check if the data is treated unsigned!
         assertEquals(sfi.getStructuredFieldLength(), 10);
-        assertEquals(sfi.getStructuredFieldIntroducerLength(), 7);
+        assertEquals(sfi.getStructuredFieldIntroducerLength(), 9);
         assertEquals(sfi.getStructuredFieldIdentifier(), StructuredFieldIdentifier.BPF);
     }
 
@@ -89,7 +89,7 @@ public final class StructuredFieldIntroducerTest extends TestCase {
         assertTrue(sfi.hasPaddingData());
         assertEquals(sfi.getPaddingDataLength(), 511);
         assertEquals(sfi.getStructuredFieldLength(), 11);
-        assertEquals(sfi.getStructuredFieldIntroducerLength(), 7);
+        assertEquals(sfi.getStructuredFieldIntroducerLength(), 9);
         assertEquals(sfi.getStructuredFieldIdentifier(), StructuredFieldIdentifier.BPF);
     }
 
@@ -138,7 +138,7 @@ public final class StructuredFieldIntroducerTest extends TestCase {
         assertFalse(sfi.hasPaddingData());
         assertEquals(sfi.getPaddingDataLength(), 0);
         assertEquals(sfi.getStructuredFieldLength(), 11);
-        assertEquals(sfi.getStructuredFieldIntroducerLength(), 7 + 3);
+        assertEquals(sfi.getStructuredFieldIntroducerLength(), 9 + 3);
         assertEquals(sfi.getStructuredFieldIdentifier(), StructuredFieldIdentifier.BPF);
     }
 
@@ -171,7 +171,7 @@ public final class StructuredFieldIntroducerTest extends TestCase {
         assertFalse(sfi.hasPaddingData());
         assertEquals(sfi.getPaddingDataLength(), 0);
         assertEquals(sfi.getStructuredFieldLength(), 8);
-        assertEquals(sfi.getStructuredFieldIntroducerLength(), 7);
+        assertEquals(sfi.getStructuredFieldIntroducerLength(), 9);
         assertEquals(sfi.getStructuredFieldIdentifier(), StructuredFieldIdentifier.BPF);
     }
 
