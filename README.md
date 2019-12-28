@@ -91,7 +91,7 @@ as for the `RecordHandler` above - the application decides which control sequenc
 and which not. 
 
 Here is an example how to use the `PtocaParser`. This sample removes all NOPs from the PtocaControlSequence
-block and constructs a new PTOCA block. The sampe is rather dumb and incomplete but it shows the idea
+block and constructs a new PTOCA block. The sample is rather dumb and incomplete but it shows the idea
 behind the `PtocaControlSequenceHandler` and how to use it.
 
 ```java
