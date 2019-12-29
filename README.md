@@ -320,7 +320,7 @@ RMI    | Relative Move Inline                   | :white_check_mark:
 RPS    | Repeat String                          | :white_check_mark:
 SBI    | Set Baseline Increment                 | :white_check_mark:
 SCFL   | Set Coded Font Local                   | :white_check_mark:
-SEC    | Set Extended Text Color                | :x:
+SEC    | Set Extended Text Color                | :white_check_mark:
 SIA    | Set Intercharacter Adjustment          | :white_check_mark:
 SIM    | Set Inline Margin                      | :white_check_mark:
 STC    | Set Text Color                         | :white_check_mark:

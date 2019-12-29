@@ -95,7 +95,9 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.SCFL_UNCHAINED:
             return new SetCodedFontLocal(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.SEC:
+        case PtocaControlSequenceFunctionType.SEC_CHAINED:
+        case PtocaControlSequenceFunctionType.SEC_UNCHAINED:
+            return new SetExtendedTextColor(functionType, data);
 
         case PtocaControlSequenceFunctionType.SIA_CHAINED:
         case PtocaControlSequenceFunctionType.SIA_UNCHAINED:
