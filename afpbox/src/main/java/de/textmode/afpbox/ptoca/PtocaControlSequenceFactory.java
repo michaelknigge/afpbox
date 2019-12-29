@@ -106,7 +106,10 @@ public final class PtocaControlSequenceFactory {
             return new SetInlineMargin(functionType, data);
 
             //        case PtocaControlSequenceFunctionType.STC:
-            //        case PtocaControlSequenceFunctionType.STO:
+
+        case PtocaControlSequenceFunctionType.STO_CHAINED:
+        case PtocaControlSequenceFunctionType.STO_UNCHAINED:
+            return new SetTextOrientation(functionType, data);
 
         case PtocaControlSequenceFunctionType.SVI_CHAINED:
         case PtocaControlSequenceFunctionType.SVI_UNCHAINED:
