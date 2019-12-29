@@ -71,7 +71,9 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.NOP_UNCHAINED:
             return new NoOperation(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.OVS:
+        case PtocaControlSequenceFunctionType.OVS_CHAINED:
+        case PtocaControlSequenceFunctionType.OVS_UNCHAINED:
+            return new Overstrike(functionType, data);
 
         case PtocaControlSequenceFunctionType.RMB_CHAINED:
         case PtocaControlSequenceFunctionType.RMB_UNCHAINED:

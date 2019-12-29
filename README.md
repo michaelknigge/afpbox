@@ -327,7 +327,7 @@ SEC    | Set Extended Text Color                | :x:
 SCFL   | Set Coded Font Local                   | :x:
 BSU    | Begin Suppression                      | :white_check_mark:
 ESU    | End Suppression                        | :white_check_mark:
-OVS    | Overstrike                             | :x:
+OVS    | Overstrike                             | :white_check_mark:
 USC    | Underscore                             | :x:
 TBM    | Temporary Baseline Move                | :x:
 
