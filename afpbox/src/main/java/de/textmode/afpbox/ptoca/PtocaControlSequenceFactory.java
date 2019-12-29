@@ -91,7 +91,10 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.SBI_UNCHAINED:
             return new SetBaselineIncrement(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.SCF:
+        case PtocaControlSequenceFunctionType.SCFL_CHAINED:
+        case PtocaControlSequenceFunctionType.SCFL_UNCHAINED:
+            return new SetCodedFontLocal(functionType, data);
+
             //        case PtocaControlSequenceFunctionType.SEC:
             //        case PtocaControlSequenceFunctionType.SIA:
             //        case PtocaControlSequenceFunctionType.SIM:

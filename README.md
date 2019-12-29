@@ -324,7 +324,7 @@ DIR    | Draw I-axis Rule                       | :x:
 DBR    | Draw B-axis Rule                       | :x:
 STC    | Set Text Color                         | :x:
 SEC    | Set Extended Text Color                | :x:
-SCFL   | Set Coded Font Local                   | :x:
+SCFL   | Set Coded Font Local                   | :white_check_mark:
 BSU    | Begin Suppression                      | :white_check_mark:
 ESU    | End Suppression                        | :white_check_mark:
 OVS    | Overstrike                             | :white_check_mark:
