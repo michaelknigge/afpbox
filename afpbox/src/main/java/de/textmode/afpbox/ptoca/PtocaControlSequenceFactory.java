@@ -114,7 +114,10 @@ public final class PtocaControlSequenceFactory {
 
             //        case PtocaControlSequenceFunctionType.TBM:
             //        case PtocaControlSequenceFunctionType.TRN:
-            //        case PtocaControlSequenceFunctionType.USC:
+
+        case PtocaControlSequenceFunctionType.USC_CHAINED:
+        case PtocaControlSequenceFunctionType.USC_UNCHAINED:
+            return new Underscore(functionType, data);
 
         default:
             return new UnknownControlSequence(functionType, data);

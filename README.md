@@ -328,7 +328,7 @@ SCFL   | Set Coded Font Local                   | :white_check_mark:
 BSU    | Begin Suppression                      | :white_check_mark:
 ESU    | End Suppression                        | :white_check_mark:
 OVS    | Overstrike                             | :white_check_mark:
-USC    | Underscore                             | :x:
+USC    | Underscore                             | :white_check_mark:
 TBM    | Temporary Baseline Move                | :x:
 
 # GOCA Drawing Orders
