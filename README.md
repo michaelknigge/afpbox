@@ -317,7 +317,7 @@ GLC    | Glyph Layout Control                   | :x:
 GIR    | Glyph ID Run                           | :x:
 GAR    | Glyph Advance Run                      | :x:
 GOR    | Glyph Offset Run                       | :x:
-TRN    | Transparent Data                       | :x:
+TRN    | Transparent Data                       | :white_check_mark:
 RPS    | Repeat String                          | :white_check_mark:
 NOP    | No Operation                           | :white_check_mark:
 DIR    | Draw I-axis Rule                       | :x:
