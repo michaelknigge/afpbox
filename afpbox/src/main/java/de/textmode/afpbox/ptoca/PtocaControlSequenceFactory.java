@@ -101,7 +101,10 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.SIA_UNCHAINED:
             return new SetIntercharacterAdjustment(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.SIM:
+        case PtocaControlSequenceFunctionType.SIM_CHAINED:
+        case PtocaControlSequenceFunctionType.SIM_UNCHAINED:
+            return new SetInlineMargin(functionType, data);
+
             //        case PtocaControlSequenceFunctionType.STC:
             //        case PtocaControlSequenceFunctionType.STO:
             //        case PtocaControlSequenceFunctionType.SVI:
