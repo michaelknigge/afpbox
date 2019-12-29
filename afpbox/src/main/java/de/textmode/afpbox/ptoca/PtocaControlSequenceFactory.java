@@ -64,7 +64,9 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.DBR_UNCHAINED:
             return new DrawBaselineAxisRule(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.DIR:
+        case PtocaControlSequenceFunctionType.DIR_CHAINED:
+        case PtocaControlSequenceFunctionType.DIR_UNCHAINED:
+            return new DrawInlineAxisRule(functionType, data);
 
         case PtocaControlSequenceFunctionType.ESU_CHAINED:
         case PtocaControlSequenceFunctionType.ESU_UNCHAINED:
