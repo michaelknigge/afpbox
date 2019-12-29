@@ -323,7 +323,7 @@ SCFL   | Set Coded Font Local                   | :white_check_mark:
 SEC    | Set Extended Text Color                | :x:
 SIA    | Set Intercharacter Adjustment          | :white_check_mark:
 SIM    | Set Inline Margin                      | :white_check_mark:
-STC    | Set Text Color                         | :x:
+STC    | Set Text Color                         | :white_check_mark:
 STO    | Set Text Orientation                   | :white_check_mark:
 SVI    | Set Variable Space Character Increment | :white_check_mark:
 TBM    | Temporary Baseline Move                | :white_check_mark:

@@ -105,7 +105,9 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.SIM_UNCHAINED:
             return new SetInlineMargin(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.STC:
+        case PtocaControlSequenceFunctionType.STC_CHAINED:
+        case PtocaControlSequenceFunctionType.STC_UNCHAINED:
+            return new SetTextColor(functionType, data);
 
         case PtocaControlSequenceFunctionType.STO_CHAINED:
         case PtocaControlSequenceFunctionType.STO_UNCHAINED:
