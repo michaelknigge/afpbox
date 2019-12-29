@@ -310,7 +310,7 @@ RMI    | Relative Move Inline                   | :white_check_mark:
 SBI    | Set Baseline Increment                 | :x:
 AMB    | Absolute Move Baseline                 | :white_check_mark:
 RMB    | Relative Move Baseline                 | :white_check_mark:
-BLN    | Begin Line                             | :x:
+BLN    | Begin Line                             | :white_check_mark:
 STO    | Set Text Orientation                   | :x:
 UCT    | Unicode Complex Text                   | :x:
 GLC    | Glyph Layout Control                   | :x:

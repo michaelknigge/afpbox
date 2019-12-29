@@ -52,7 +52,10 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.AMI_UNCHAINED:
             return new AbsoluteMoveInline(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.BLN:
+        case PtocaControlSequenceFunctionType.BLN_CHAINED:
+        case PtocaControlSequenceFunctionType.BLN_UNCHAINED:
+            return new BeginLine(functionType, data);
+
             //        case PtocaControlSequenceFunctionType.BSU:
             //        case PtocaControlSequenceFunctionType.DBR:
             //        case PtocaControlSequenceFunctionType.DIR:

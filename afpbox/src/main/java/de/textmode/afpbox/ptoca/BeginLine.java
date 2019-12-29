@@ -1,4 +1,4 @@
-package de.textmode.afpbox.structuredfield;
+package de.textmode.afpbox.ptoca;
 
 /*
  * Copyright 2019 Michael Knigge
@@ -16,17 +16,20 @@ package de.textmode.afpbox.structuredfield;
  * limitations under the License.
  */
 
-import org.apache.commons.codec.binary.Hex;
+import de.textmode.afpbox.AfpException;
 
 /**
- * Unit-Tests for the class {@link NoOperation}.
+ * The Begin Line control sequence begins a new line.
  */
-public final class NoOperationTest extends StructuredFieldTest<NoOperation> {
+public final class BeginLine extends PtocaControlSequence {
 
-    public void testNoOperation() throws Exception {
-        final String sfi = "5A0010D3EEEE000000";
-        final String data = "F0F0F0F0F0F0F0F1";
-        final NoOperation sf = this.parse(sfi + data);
-        assertEquals(data, Hex.encodeHexString(sf.getData()).toUpperCase());
+    /**
+     * Constructs the {@link BeginLine}.
+     *
+     * @param functionType  the integer value of the PTOCA control sequence function type.
+     * @param data          the raw data of the PTOCA control sequence.
+     */
+    BeginLine(final int functionType, final byte[] data) throws AfpException {
+        super(functionType, data, "BLN", 2);
     }
 }

@@ -1,4 +1,4 @@
-package de.textmode.afpbox.structuredfield;
+package de.textmode.afpbox.ptoca;
 
 /*
  * Copyright 2019 Michael Knigge
@@ -16,17 +16,24 @@ package de.textmode.afpbox.structuredfield;
  * limitations under the License.
  */
 
-import org.apache.commons.codec.binary.Hex;
-
 /**
- * Unit-Tests for the class {@link NoOperation}.
+ * Unit-Tests for the class {@link BeginLine}.
  */
-public final class NoOperationTest extends StructuredFieldTest<NoOperation> {
+public final class BeginLineTest extends PtocaControlSequenceTest<BeginLine> {
 
-    public void testNoOperation() throws Exception {
-        final String sfi = "5A0010D3EEEE000000";
-        final String data = "F0F0F0F0F0F0F0F1";
-        final NoOperation sf = this.parse(sfi + data);
-        assertEquals(data, Hex.encodeHexString(sf.getData()).toUpperCase());
+    /**
+     * Checks if a faulty RMB is determined.
+     */
+    public void testFaulty() throws Exception {
+        this.parseAndExpectFailure("2BD303D801",
+                "PTOCA control sequence BLN has invalid length of 3 bytes (expected 2 bytes)");
+    }
+
+    /**
+     * Checks correct BLN.
+     */
+    public void testHappyFlow() throws Exception {
+        this.parse("2BD302D8");
+        this.parse("2BD302D9");
     }
 }
