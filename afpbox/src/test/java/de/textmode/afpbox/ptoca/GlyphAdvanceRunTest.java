@@ -37,15 +37,15 @@ public final class GlyphAdvanceRunTest extends PtocaControlSequenceTest<GlyphAdv
      */
     public void testHappyFlow() throws Exception {
         final GlyphAdvanceRun gar1 = this.parse("2BD3048C0000");
-        assertEquals(0, gar1.getGlyphAdvances().length);
+        assertEquals(0, gar1.getGlyphAdvance().length);
 
         final GlyphAdvanceRun gar2 = this.parse("2BD3068C00001122");
-        assertEquals(1, gar2.getGlyphAdvances().length);
-        assertEquals(0x1122, gar2.getGlyphAdvances()[0]);
+        assertEquals(1, gar2.getGlyphAdvance().length);
+        assertEquals(0x1122, gar2.getGlyphAdvance()[0]);
 
         final GlyphAdvanceRun gar3 = this.parse("2BD3088D00007FFF8000");
-        assertEquals(2, gar3.getGlyphAdvances().length);
-        assertEquals(32767, gar3.getGlyphAdvances()[0]);
-        assertEquals(32768, gar3.getGlyphAdvances()[1]);
+        assertEquals(2, gar3.getGlyphAdvance().length);
+        assertEquals(32767, gar3.getGlyphAdvance()[0]);
+        assertEquals(32768, gar3.getGlyphAdvance()[1]);
     }
 }

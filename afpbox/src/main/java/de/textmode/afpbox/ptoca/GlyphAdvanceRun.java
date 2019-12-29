@@ -47,7 +47,7 @@ public final class GlyphAdvanceRun extends PtocaControlSequence {
      *
      * @return glyph advances along the baseline.
      */
-    public int[] getGlyphAdvances() {
+    public int[] getGlyphAdvance() {
 
         if (this.getData().length == 4) {
             return ByteUtils.EMPTY_INT_ARRAY;
