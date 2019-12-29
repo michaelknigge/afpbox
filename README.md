@@ -309,7 +309,7 @@ BSU    | Begin Suppression                      | :white_check_mark:
 DBR    | Draw B-axis Rule                       | :white_check_mark:
 DIR    | Draw I-axis Rule                       | :white_check_mark:
 ESU    | End Suppression                        | :white_check_mark:
-GAR    | Glyph Advance Run                      | :x:
+GAR    | Glyph Advance Run                      | :white_check_mark:
 GIR    | Glyph ID Run                           | :x:
 GLC    | Glyph Layout Control                   | :x:
 GOR    | Glyph Offset Run                       | :x:

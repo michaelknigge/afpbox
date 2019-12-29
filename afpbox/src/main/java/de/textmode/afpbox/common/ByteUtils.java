@@ -27,6 +27,11 @@ public final class ByteUtils {
     public static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
     /**
+     * An empty int array.
+     */
+    public static final int[] EMPTY_INT_ARRAY = new int[0];
+
+    /**
      * Converts one bytes from a byte array to an unsigned integer.
      *
      * @return the unsigned 8-bit value of the converted byte.

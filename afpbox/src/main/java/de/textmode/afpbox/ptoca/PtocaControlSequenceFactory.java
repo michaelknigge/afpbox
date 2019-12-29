@@ -72,6 +72,10 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.ESU_UNCHAINED:
             return new EndSuppression(functionType, data);
 
+        case PtocaControlSequenceFunctionType.GAR_CHAINED:
+        case PtocaControlSequenceFunctionType.GAR_UNCHAINED:
+            return new GlyphAdvanceRun(functionType, data);
+
         case PtocaControlSequenceFunctionType.NOP_CHAINED:
         case PtocaControlSequenceFunctionType.NOP_UNCHAINED:
             return new NoOperation(functionType, data);
