@@ -325,7 +325,7 @@ DBR    | Draw B-axis Rule                       | :x:
 STC    | Set Text Color                         | :x:
 SEC    | Set Extended Text Color                | :x:
 SCFL   | Set Coded Font Local                   | :x:
-BSU    | Begin Suppression                      | :x:
+BSU    | Begin Suppression                      | :white_check_mark:
 ESU    | End Suppression                        | :x:
 OVS    | Overstrike                             | :x:
 USC    | Underscore                             | :x:
