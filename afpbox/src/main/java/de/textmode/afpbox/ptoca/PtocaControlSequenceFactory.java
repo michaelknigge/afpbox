@@ -83,7 +83,10 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.RMI_UNCHAINED:
             return new RelativeMoveInline(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.RPS:
+        case PtocaControlSequenceFunctionType.RPS_CHAINED:
+        case PtocaControlSequenceFunctionType.RPS_UNCHAINED:
+            return new RepeatString(functionType, data);
+
             //        case PtocaControlSequenceFunctionType.SBI:
             //        case PtocaControlSequenceFunctionType.SCF:
             //        case PtocaControlSequenceFunctionType.SEC:

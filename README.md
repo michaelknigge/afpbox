@@ -318,7 +318,7 @@ GIR    | Glyph ID Run                           | :x:
 GAR    | Glyph Advance Run                      | :x:
 GOR    | Glyph Offset Run                       | :x:
 TRN    | Transparent Data                       | :x:
-RPS    | Repeat String                          | :x:
+RPS    | Repeat String                          | :white_check_mark:
 NOP    | No Operation                           | :white_check_mark:
 DIR    | Draw I-axis Rule                       | :x:
 DBR    | Draw B-axis Rule                       | :x:
