@@ -306,7 +306,7 @@ AMB    | Absolute Move Baseline                 | :white_check_mark:
 AMI    | Absolute Move Inline                   | :white_check_mark:
 BLN    | Begin Line                             | :white_check_mark:
 BSU    | Begin Suppression                      | :white_check_mark:
-DBR    | Draw B-axis Rule                       | :x:
+DBR    | Draw B-axis Rule                       | :white_check_mark:
 DIR    | Draw I-axis Rule                       | :x:
 ESU    | End Suppression                        | :white_check_mark:
 GAR    | Glyph Advance Run                      | :x:

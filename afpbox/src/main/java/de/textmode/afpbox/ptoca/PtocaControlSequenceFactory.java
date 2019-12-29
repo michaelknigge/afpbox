@@ -60,7 +60,10 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.BSU_UNCHAINED:
             return new BeginSuppression(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.DBR:
+        case PtocaControlSequenceFunctionType.DBR_CHAINED:
+        case PtocaControlSequenceFunctionType.DBR_UNCHAINED:
+            return new DrawBaselineAxisRule(functionType, data);
+
             //        case PtocaControlSequenceFunctionType.DIR:
 
         case PtocaControlSequenceFunctionType.ESU_CHAINED:
