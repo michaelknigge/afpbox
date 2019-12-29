@@ -18,6 +18,9 @@ package de.textmode.afpbox.ptoca;
 
 import org.apache.commons.codec.binary.Hex;
 
+/**
+ * Unit-Tests for the class {@link NoOperation}.
+ */
 public final class NoOperationTest extends PtocaControlSequenceTest<NoOperation> {
 
     /**
@@ -33,7 +36,7 @@ public final class NoOperationTest extends PtocaControlSequenceTest<NoOperation>
      */
     public void testHappyFlow() throws Exception {
         assertEquals("", Hex.encodeHexString(this.parse("2BD302F8").getIgnoredData()).toUpperCase());
-        
+
         assertEquals("00", Hex.encodeHexString(this.parse("2BD303F800").getIgnoredData()).toUpperCase());
         assertEquals("000102", Hex.encodeHexString(this.parse("2BD305F8000102").getIgnoredData()).toUpperCase());
 

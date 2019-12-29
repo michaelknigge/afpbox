@@ -16,6 +16,9 @@ package de.textmode.afpbox.ptoca;
  * limitations under the License.
  */
 
+/**
+ * Unit-Tests for the class {@link EndSuppression}.
+ */
 public final class EndSuppressionTest extends PtocaControlSequenceTest<EndSuppression> {
 
     /**

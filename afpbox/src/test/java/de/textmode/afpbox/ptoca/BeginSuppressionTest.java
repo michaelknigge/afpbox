@@ -16,6 +16,9 @@ package de.textmode.afpbox.ptoca;
  * limitations under the License.
  */
 
+/**
+ * Unit-Tests for the class {@link BeginSuppression}.
+ */
 public final class BeginSuppressionTest extends PtocaControlSequenceTest<BeginSuppression> {
 
     /**
