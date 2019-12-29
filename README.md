@@ -319,7 +319,7 @@ GAR    | Glyph Advance Run                      | :x:
 GOR    | Glyph Offset Run                       | :x:
 TRN    | Transparent Data                       | :x:
 RPS    | Repeat String                          | :x:
-NOP    | No Operation                           | :x:
+NOP    | No Operation                           | :white_check_mark:
 DIR    | Draw I-axis Rule                       | :x:
 DBR    | Draw B-axis Rule                       | :x:
 STC    | Set Text Color                         | :x:

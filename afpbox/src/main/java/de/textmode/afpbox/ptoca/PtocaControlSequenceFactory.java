@@ -67,7 +67,10 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.ESU_UNCHAINED:
             return new EndSuppression(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.NOP:
+        case PtocaControlSequenceFunctionType.NOP_CHAINED:
+        case PtocaControlSequenceFunctionType.NOP_UNCHAINED:
+            return new NoOperation(functionType, data);
+
             //        case PtocaControlSequenceFunctionType.OVS:
 
         case PtocaControlSequenceFunctionType.RMB_CHAINED:
