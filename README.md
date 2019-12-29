@@ -307,7 +307,7 @@ SIA    | Set Intercharacter Adjustment          | :x:
 SVI    | Set Variable Space Character Increment | :x:
 AMI    | Absolute Move Inline                   | :white_check_mark:
 RMI    | Relative Move Inline                   | :white_check_mark:
-SBI    | Set Baseline Increment                 | :x:
+SBI    | Set Baseline Increment                 | :white_check_mark:
 AMB    | Absolute Move Baseline                 | :white_check_mark:
 RMB    | Relative Move Baseline                 | :white_check_mark:
 BLN    | Begin Line                             | :white_check_mark:

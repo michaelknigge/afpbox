@@ -87,7 +87,10 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.RPS_UNCHAINED:
             return new RepeatString(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.SBI:
+        case PtocaControlSequenceFunctionType.SBI_CHAINED:
+        case PtocaControlSequenceFunctionType.SBI_UNCHAINED:
+            return new SetBaselineIncrement(functionType, data);
+
             //        case PtocaControlSequenceFunctionType.SCF:
             //        case PtocaControlSequenceFunctionType.SEC:
             //        case PtocaControlSequenceFunctionType.SIA:
