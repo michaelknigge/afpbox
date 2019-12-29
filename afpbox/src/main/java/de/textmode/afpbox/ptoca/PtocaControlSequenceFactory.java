@@ -112,7 +112,9 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.SVI_UNCHAINED:
             return new SetVariableSpaceCharacterIncrement(functionType, data);
 
-            //        case PtocaControlSequenceFunctionType.TBM:
+        case PtocaControlSequenceFunctionType.TBM_CHAINED:
+        case PtocaControlSequenceFunctionType.TBM_UNCHAINED:
+            return new TemporaryBaselineMove(functionType, data);
 
         case PtocaControlSequenceFunctionType.TRN_CHAINED:
         case PtocaControlSequenceFunctionType.TRN_UNCHAINED:
@@ -126,5 +128,4 @@ public final class PtocaControlSequenceFactory {
             return new UnknownControlSequence(functionType, data);
         }
     }
-
 }

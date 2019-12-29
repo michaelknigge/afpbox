@@ -326,7 +326,7 @@ SIM    | Set Inline Margin                      | :white_check_mark:
 STC    | Set Text Color                         | :x:
 STO    | Set Text Orientation                   | :x:
 SVI    | Set Variable Space Character Increment | :white_check_mark:
-TBM    | Temporary Baseline Move                | :x:
+TBM    | Temporary Baseline Move                | :white_check_mark:
 TRN    | Transparent Data                       | :white_check_mark:
 UCT    | Unicode Complex Text                   | :x:
 USC    | Underscore                             | :white_check_mark:
