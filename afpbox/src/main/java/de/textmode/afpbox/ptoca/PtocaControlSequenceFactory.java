@@ -107,7 +107,11 @@ public final class PtocaControlSequenceFactory {
 
             //        case PtocaControlSequenceFunctionType.STC:
             //        case PtocaControlSequenceFunctionType.STO:
-            //        case PtocaControlSequenceFunctionType.SVI:
+
+        case PtocaControlSequenceFunctionType.SVI_CHAINED:
+        case PtocaControlSequenceFunctionType.SVI_UNCHAINED:
+            return new SetVariableSpaceCharacterIncrement(functionType, data);
+
             //        case PtocaControlSequenceFunctionType.TBM:
             //        case PtocaControlSequenceFunctionType.TRN:
             //        case PtocaControlSequenceFunctionType.USC:

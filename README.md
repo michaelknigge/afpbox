@@ -304,7 +304,7 @@ Acronym| Control Sequence Name                  | Supported
 -------|----------------------------------------|----------
 SIM    | Set Inline Margin                      | :white_check_mark:
 SIA    | Set Intercharacter Adjustment          | :white_check_mark:
-SVI    | Set Variable Space Character Increment | :x:
+SVI    | Set Variable Space Character Increment | :white_check_mark:
 AMI    | Absolute Move Inline                   | :white_check_mark:
 RMI    | Relative Move Inline                   | :white_check_mark:
 SBI    | Set Baseline Increment                 | :white_check_mark:
