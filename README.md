@@ -302,34 +302,34 @@ that afpbox can parse the PTOCA Control Sequence and create a specific Java obje
 
 Acronym| Control Sequence Name                  | Supported
 -------|----------------------------------------|----------
-SIM    | Set Inline Margin                      | :white_check_mark:
-SIA    | Set Intercharacter Adjustment          | :white_check_mark:
-SVI    | Set Variable Space Character Increment | :white_check_mark:
-AMI    | Absolute Move Inline                   | :white_check_mark:
-RMI    | Relative Move Inline                   | :white_check_mark:
-SBI    | Set Baseline Increment                 | :white_check_mark:
 AMB    | Absolute Move Baseline                 | :white_check_mark:
-RMB    | Relative Move Baseline                 | :white_check_mark:
+AMI    | Absolute Move Inline                   | :white_check_mark:
 BLN    | Begin Line                             | :white_check_mark:
-STO    | Set Text Orientation                   | :x:
-UCT    | Unicode Complex Text                   | :x:
-GLC    | Glyph Layout Control                   | :x:
-GIR    | Glyph ID Run                           | :x:
-GAR    | Glyph Advance Run                      | :x:
-GOR    | Glyph Offset Run                       | :x:
-TRN    | Transparent Data                       | :white_check_mark:
-RPS    | Repeat String                          | :white_check_mark:
-NOP    | No Operation                           | :white_check_mark:
-DIR    | Draw I-axis Rule                       | :x:
-DBR    | Draw B-axis Rule                       | :x:
-STC    | Set Text Color                         | :x:
-SEC    | Set Extended Text Color                | :x:
-SCFL   | Set Coded Font Local                   | :white_check_mark:
 BSU    | Begin Suppression                      | :white_check_mark:
+DBR    | Draw B-axis Rule                       | :x:
+DIR    | Draw I-axis Rule                       | :x:
 ESU    | End Suppression                        | :white_check_mark:
+GAR    | Glyph Advance Run                      | :x:
+GIR    | Glyph ID Run                           | :x:
+GLC    | Glyph Layout Control                   | :x:
+GOR    | Glyph Offset Run                       | :x:
+NOP    | No Operation                           | :white_check_mark:
 OVS    | Overstrike                             | :white_check_mark:
-USC    | Underscore                             | :white_check_mark:
+RMB    | Relative Move Baseline                 | :white_check_mark:
+RMI    | Relative Move Inline                   | :white_check_mark:
+RPS    | Repeat String                          | :white_check_mark:
+SBI    | Set Baseline Increment                 | :white_check_mark:
+SCFL   | Set Coded Font Local                   | :white_check_mark:
+SEC    | Set Extended Text Color                | :x:
+SIA    | Set Intercharacter Adjustment          | :white_check_mark:
+SIM    | Set Inline Margin                      | :white_check_mark:
+STC    | Set Text Color                         | :x:
+STO    | Set Text Orientation                   | :x:
+SVI    | Set Variable Space Character Increment | :white_check_mark:
 TBM    | Temporary Baseline Move                | :x:
+TRN    | Transparent Data                       | :white_check_mark:
+UCT    | Unicode Complex Text                   | :x:
+USC    | Underscore                             | :white_check_mark:
 
 # GOCA Drawing Orders
 The following table shows which GOCA Drawing Orders are currently supported (*"supported"* means
