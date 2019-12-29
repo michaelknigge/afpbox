@@ -62,7 +62,11 @@ public final class PtocaControlSequenceFactory {
 
             //        case PtocaControlSequenceFunctionType.DBR:
             //        case PtocaControlSequenceFunctionType.DIR:
-            //        case PtocaControlSequenceFunctionType.ESU:
+
+        case PtocaControlSequenceFunctionType.ESU_CHAINED:
+        case PtocaControlSequenceFunctionType.ESU_UNCHAINED:
+            return new EndSuppression(functionType, data);
+
             //        case PtocaControlSequenceFunctionType.NOP:
             //        case PtocaControlSequenceFunctionType.OVS:
 

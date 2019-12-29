@@ -19,20 +19,16 @@ package de.textmode.afpbox.ptoca;
 import de.textmode.afpbox.AfpException;
 import de.textmode.afpbox.common.ByteUtils;
 
-/**
- * The Begin Suppression control sequence marks the beginning of a string of
- * presentation text that may be suppressed from the visible output.
- */
-public final class BeginSuppression extends PtocaControlSequence {
+public final class EndSuppression extends PtocaControlSequence {
 
     /**
-     * Constructs the {@link BeginSuppression}.
+     * Constructs the {@link EndSuppression}.
      *
      * @param functionType  the integer value of the PTOCA control sequence function type.
      * @param data          the raw data of the PTOCA control sequence.
      */
-    BeginSuppression(final int functionType, final byte[] data) throws AfpException {
-        super(functionType, data, "BSU", 3);
+    EndSuppression(final int functionType, final byte[] data) throws AfpException {
+        super(functionType, data, "ESU", 3);
     }
 
     /**
