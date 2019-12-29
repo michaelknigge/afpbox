@@ -132,6 +132,9 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.TRN_UNCHAINED:
             return new TransparentData(functionType, data);
 
+        case PtocaControlSequenceFunctionType.UCT_UNCHAINED:
+            return new UnicodeComplexText(functionType, data);
+
         case PtocaControlSequenceFunctionType.USC_CHAINED:
         case PtocaControlSequenceFunctionType.USC_UNCHAINED:
             return new Underscore(functionType, data);

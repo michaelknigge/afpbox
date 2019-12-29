@@ -328,7 +328,7 @@ STO    | Set Text Orientation                   | :white_check_mark:
 SVI    | Set Variable Space Character Increment | :white_check_mark:
 TBM    | Temporary Baseline Move                | :white_check_mark:
 TRN    | Transparent Data                       | :white_check_mark:
-UCT    | Unicode Complex Text                   | :x:
+UCT    | Unicode Complex Text                   | :white_check_mark:
 USC    | Underscore                             | :white_check_mark:
 
 # GOCA Drawing Orders
