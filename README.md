@@ -303,7 +303,7 @@ that afpbox can parse the PTOCA Control Sequence and create a specific Java obje
 Acronym| Control Sequence Name                  | Supported
 -------|----------------------------------------|----------
 SIM    | Set Inline Margin                      | :x:
-SIA    | Set Intercharacter Adjustment          | :x:
+SIA    | Set Intercharacter Adjustment          | :white_check_mark:
 SVI    | Set Variable Space Character Increment | :x:
 AMI    | Absolute Move Inline                   | :white_check_mark:
 RMI    | Relative Move Inline                   | :white_check_mark:

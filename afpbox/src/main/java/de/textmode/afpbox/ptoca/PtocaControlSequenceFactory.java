@@ -96,7 +96,11 @@ public final class PtocaControlSequenceFactory {
             return new SetCodedFontLocal(functionType, data);
 
             //        case PtocaControlSequenceFunctionType.SEC:
-            //        case PtocaControlSequenceFunctionType.SIA:
+
+        case PtocaControlSequenceFunctionType.SIA_CHAINED:
+        case PtocaControlSequenceFunctionType.SIA_UNCHAINED:
+            return new SetIntercharacterAdjustment(functionType, data);
+
             //        case PtocaControlSequenceFunctionType.SIM:
             //        case PtocaControlSequenceFunctionType.STC:
             //        case PtocaControlSequenceFunctionType.STO:
