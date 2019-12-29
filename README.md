@@ -312,7 +312,7 @@ ESU    | End Suppression                        | :white_check_mark:
 GAR    | Glyph Advance Run                      | :white_check_mark:
 GIR    | Glyph ID Run                           | :white_check_mark:
 GLC    | Glyph Layout Control                   | :x:
-GOR    | Glyph Offset Run                       | :x:
+GOR    | Glyph Offset Run                       | :white_check_mark:
 NOP    | No Operation                           | :white_check_mark:
 OVS    | Overstrike                             | :white_check_mark:
 RMB    | Relative Move Baseline                 | :white_check_mark:

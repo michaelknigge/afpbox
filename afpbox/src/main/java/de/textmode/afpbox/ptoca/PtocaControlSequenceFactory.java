@@ -79,6 +79,10 @@ public final class PtocaControlSequenceFactory {
         case PtocaControlSequenceFunctionType.GIR_CHAINED:
             return new GlyphIdRun(functionType, data);
 
+        case PtocaControlSequenceFunctionType.GOR_CHAINED:
+        case PtocaControlSequenceFunctionType.GOR_UNCHAINED:
+            return new GlyphOffsetRun(functionType, data);
+
         case PtocaControlSequenceFunctionType.NOP_CHAINED:
         case PtocaControlSequenceFunctionType.NOP_UNCHAINED:
             return new NoOperation(functionType, data);

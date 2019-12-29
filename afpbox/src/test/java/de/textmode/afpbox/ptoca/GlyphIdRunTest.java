@@ -22,7 +22,7 @@ package de.textmode.afpbox.ptoca;
 public final class GlyphIdRunTest extends PtocaControlSequenceTest<GlyphIdRun> {
 
     /**
-     * Checks if a faulty GAR is determined.
+     * Checks if a faulty GIR is determined.
      */
     public void testFaulty() throws Exception {
         this.parseAndExpectFailure("2BD3038B01",
@@ -33,7 +33,7 @@ public final class GlyphIdRunTest extends PtocaControlSequenceTest<GlyphIdRun> {
     }
 
     /**
-     * Checks some correct GARs.
+     * Checks some correct GIRs.
      */
     public void testHappyFlow() throws Exception {
         final GlyphIdRun gir1 = this.parse("2BD3048B0000");
