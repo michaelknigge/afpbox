@@ -311,7 +311,7 @@ DIR    | Draw I-axis Rule                       | :white_check_mark:
 ESU    | End Suppression                        | :white_check_mark:
 GAR    | Glyph Advance Run                      | :white_check_mark:
 GIR    | Glyph ID Run                           | :white_check_mark:
-GLC    | Glyph Layout Control                   | :x:
+GLC    | Glyph Layout Control                   | :white_check_mark:
 GOR    | Glyph Offset Run                       | :white_check_mark:
 NOP    | No Operation                           | :white_check_mark:
 OVS    | Overstrike                             | :white_check_mark:

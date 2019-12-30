@@ -32,6 +32,11 @@ public final class ByteUtils {
     public static final int[] EMPTY_INT_ARRAY = new int[0];
 
     /**
+     * An empty String.
+     */
+    public static final String EMPTY_STRING = "";
+
+    /**
      * Converts one bytes from a byte array to an unsigned integer.
      *
      * @return the unsigned 8-bit value of the converted byte.
