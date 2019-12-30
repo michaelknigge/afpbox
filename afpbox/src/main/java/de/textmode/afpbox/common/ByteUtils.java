@@ -39,6 +39,9 @@ public final class ByteUtils {
     /**
      * Converts one bytes from a byte array to an unsigned integer.
      *
+     * @param src     the source array.
+     * @param srcPos  starting position in the source array.
+     *
      * @return the unsigned 8-bit value of the converted byte.
      */
     public static int toUnsignedByte(final byte[] src, final int srcPos) {
@@ -47,6 +50,9 @@ public final class ByteUtils {
 
     /**
      * Converts one bytes from a byte array to a signed integer.
+     *
+     * @param src     the source array.
+     * @param srcPos  starting position in the source array.
      *
      * @return the signed 8-bit value of the converted byte.
      */
@@ -57,6 +63,9 @@ public final class ByteUtils {
     /**
      * Converts two bytes from a byte array to an unsigned integer (big endian format).
      *
+     * @param src     the source array.
+     * @param srcPos  starting position in the source array.
+     *
      * @return the unsigned 16-bit value of the converted bytes.
      */
     public static int toUnsignedInteger16(final byte[] src, final int srcPos) {
@@ -65,6 +74,9 @@ public final class ByteUtils {
 
     /**
      * Converts two bytes from a byte array to a signed integer (big endian format).
+     *
+     * @param src     the source array.
+     * @param srcPos  starting position in the source array.
      *
      * @return the signed 16-bit value of the converted bytes.
      */
@@ -75,6 +87,9 @@ public final class ByteUtils {
     /**
      * Converts three bytes from a byte array to an unsigned integer (big endian format).
      *
+     * @param src     the source array.
+     * @param srcPos  starting position in the source array.
+     *
      * @return the unsigned 24-bit value of the converted bytes.
      */
     public static int toUnsignedInteger24(final byte[] src, final int srcPos) {
@@ -84,6 +99,9 @@ public final class ByteUtils {
     /**
      * Converts three bytes from a byte array to an signed integer (big endian format).
      *
+     * @param src     the source array.
+     * @param srcPos  starting position in the source array.
+     *
      * @return the signed 24-bit value of the converted bytes.
      */
     public static int toInteger24(final byte[] src, final int srcPos) {
@@ -92,6 +110,9 @@ public final class ByteUtils {
 
     /**
      * Converts four bytes from a byte array to an unsigned long (big endian format).
+     *
+     * @param src     the source array.
+     * @param srcPos  starting position in the source array.
      *
      * @return the unsigned 32-bit value of the converted bytes.
      */
@@ -104,6 +125,9 @@ public final class ByteUtils {
 
     /**
      * Converts four bytes from a byte array to an signed integer (big endian format).
+     *
+     * @param src     the source array.
+     * @param srcPos  starting position in the source array.
      *
      * @return the signed 32-bit value of the converted bytes.
      */

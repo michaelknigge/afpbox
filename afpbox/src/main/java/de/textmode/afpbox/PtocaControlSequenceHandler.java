@@ -39,15 +39,21 @@ public interface PtocaControlSequenceHandler {
      *
      * @return true if the PTOCA control sequence should be parsed. After the PTOCA control sequence has been
      *     parsed the method {@link #handleControSequence(PtocaControlSequence)} gets invoked.
+     *
+     * @throws IOException  If an I/O error occurs.
+     * @throws AfpException If something is wrong with the data stream.
      */
     public boolean handleControSequence(final int functionType, final byte[] data, final int off)
             throws IOException, AfpException;
 
     /**
      * This method gets called if a {@link PtocaControlSequence} has been read
-     * and {@link #handleControSequence(int, int, byte[])} returned <code>true</code>.
+     * and {@link #handleControSequence(int, byte[], int)} returned <code>true</code>.
      *
      * @param controlSequence   the read PTOCA control sequence.
+     *
+     * @throws IOException  If an I/O error occurs.
+     * @throws AfpException If something is wrong with the data stream.
      */
     public void handleControSequence(final PtocaControlSequence controlSequence)
             throws IOException, AfpException;
@@ -60,6 +66,9 @@ public interface PtocaControlSequenceHandler {
      * @param codePoints   the read code points.
      * @param off          offset within the byte[] where the code points starts.
      * @param len          length of the code points (in bytes, not characters).
+     *
+     * @throws IOException  If an I/O error occurs.
+     * @throws AfpException If something is wrong with the data stream.
      */
     public void handleCodePoints(final byte[] codePoints, final int off, final int len)
             throws IOException, AfpException;
