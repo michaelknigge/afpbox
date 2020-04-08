@@ -445,7 +445,7 @@ public final class StructuredFieldIdentifier {
     /**
      *  Image Cell Position.
      */
-    public static final int IOP = 0xD3AC7B;
+    public static final int ICP = 0xD3AC7B;
 
     /**
      *  Image Data Descriptor IO.
