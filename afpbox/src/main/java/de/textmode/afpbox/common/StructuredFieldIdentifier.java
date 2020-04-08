@@ -108,9 +108,9 @@ public final class StructuredFieldIdentifier {
     public static final int BII = 0xD3A87B;
 
     /**
-     *  Begin Image Object IO.
+     *  Begin Image Object.
      */
-    public static final int BIMO = 0xD3A8FB;
+    public static final int BIM = 0xD3A8FB;
 
     /**
      *  Begin Medium Map.
@@ -298,9 +298,9 @@ public final class StructuredFieldIdentifier {
     public static final int EII = 0xD3A97B;
 
     /**
-     *  End Image Object IO.
+     *  End Image Object.
      */
-    public static final int EIMO = 0xD3A9FB;
+    public static final int EIM = 0xD3A9FB;
 
     /**
      *  End Medium Map.
