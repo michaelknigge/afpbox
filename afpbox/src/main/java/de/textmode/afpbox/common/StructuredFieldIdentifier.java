@@ -608,6 +608,11 @@ public final class StructuredFieldIdentifier {
     public static final int MPS = 0xD3B15F;
 
     /**
+     *  Map Presentation Text.
+     */
+    public static final int MPT = 0xD3AB9B;
+
+    /**
      *  Map Suppression.
      */
     public static final int MSU = 0xD3ABEA;
