@@ -443,12 +443,12 @@ public final class StructuredFieldIdentifier {
     public static final int IEL = 0xD3B2A7;
 
     /**
-     *  Image Cell Position.
+     *  IM Image Cell Position.
      */
     public static final int ICP = 0xD3AC7B;
 
     /**
-     *  Image Data Descriptor IO.
+     *  Image Data Descriptor.
      */
     public static final int IDD = 0xD3A6FB;
 
@@ -458,7 +458,7 @@ public final class StructuredFieldIdentifier {
     public static final int IDM = 0xD3ABCA;
 
     /**
-     *  Image Input Descriptor IM.
+     *  IM Image Input Descriptor.
      */
     public static final int IID = 0xD3A67B;
 
@@ -473,12 +473,12 @@ public final class StructuredFieldIdentifier {
     public static final int IOB = 0xD3AFC3;
 
     /**
-     *  Image Output Control IM.
+     *  IM Image Output Control.
      */
     public static final int IOC = 0xD3A77B;
 
     /**
-     *  Image Picture Data IO.
+     *  Image Picture Data.
      */
     public static final int IPD = 0xD3EEFB;
 
@@ -498,7 +498,7 @@ public final class StructuredFieldIdentifier {
     public static final int IPS = 0xD3AF5F;
 
     /**
-     *  Image Raster Data IM.
+     *  IM Image Raster Data.
      */
     public static final int IRD = 0xD3EE7B;
 
@@ -568,7 +568,7 @@ public final class StructuredFieldIdentifier {
     public static final int MGO = 0xD3ABBB;
 
     /**
-     *  Map IO Image Object.
+     *  Map Image Object.
      */
     public static final int MIO = 0xD3ABFB;
 
