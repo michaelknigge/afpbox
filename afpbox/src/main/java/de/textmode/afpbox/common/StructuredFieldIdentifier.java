@@ -103,9 +103,9 @@ public final class StructuredFieldIdentifier {
     public static final int BGR = 0xD3A8BB;
 
     /**
-     *  Begin Image Object IM.
+     *  Begin IM Image Object.
      */
-    public static final int BIMM = 0xD3A87B;
+    public static final int BII = 0xD3A87B;
 
     /**
      *  Begin Image Object IO.
@@ -293,9 +293,9 @@ public final class StructuredFieldIdentifier {
     public static final int EGR = 0xD3A9BB;
 
     /**
-     *  End Image Object IM.
+     *  End IM Image Object.
      */
-    public static final int EIMM = 0xD3A97B;
+    public static final int EII = 0xD3A97B;
 
     /**
      *  End Image Object IO.
