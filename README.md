@@ -236,9 +236,9 @@ X'01' | Coded Graphic Character Set Global ID               | :x:
 X'75' | Color Fidelity                                      | :x:
 X'91' | Color Management Resource Descriptor                | :x:
 X'4E' | Color Specification                                 | :x:
-X'65' | Comment                                             | :x:
+X'65' | Comment                                             | :white_check_mark:
 X'8B' | Data-Object Font Descriptor                         | :x:
-X'43' | Descriptor Position                                 | :x:
+X'43' | Descriptor Position                                 | :white_check_mark:
 X'97' | Device Appearance                                   | :x:
 X'50' | Encoding Scheme ID                                  | :x:
 X'22' | Extended Resource Local ID                          | :x:
@@ -286,7 +286,7 @@ X'95' | Rendering Intent                                    | :x:
 X'24' | Resource Local ID                                   | :x:
 X'6C' | Resource Object Include                             | :x:
 X'21' | Resource Object Type                                | :x:
-X'25' | Resource Section Number                             | :x:
+X'25' | Resource Section Number                             | :white_check_mark:
 X'47' | Resource Usage Attribute (R)                        | :x:
 X'86' | Text Fidelity                                       | :x:
 X'1D' | Text Orientation (R)                                | :x:

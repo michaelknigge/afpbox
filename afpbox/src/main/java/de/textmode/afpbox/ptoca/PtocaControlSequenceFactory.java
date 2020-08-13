@@ -24,6 +24,7 @@ import de.textmode.afpbox.common.PtocaControlSequenceFunctionType;
  * for the PTOCA control sequences.
  */
 public final class PtocaControlSequenceFactory {
+
     /**
      * Creates a concrete {@link PtocaControlSequence} from the given byte[].
      *

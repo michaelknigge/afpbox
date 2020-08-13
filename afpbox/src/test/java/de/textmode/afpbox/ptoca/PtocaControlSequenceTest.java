@@ -29,7 +29,7 @@ import de.textmode.afpbox.PtocaParser;
 import junit.framework.TestCase;
 
 /**
- * Super-Class for all PtocaControlSequence unit tests.
+ * Super-Class for all {@link PtocaControlSequence} unit tests.
  */
 abstract class PtocaControlSequenceTest<T extends PtocaControlSequence> extends TestCase {
 
@@ -38,7 +38,7 @@ abstract class PtocaControlSequenceTest<T extends PtocaControlSequence> extends 
      */
     protected void parseAndExpectFailure(
             final String hexString,
-            final String expectedMessage) throws IOException, AfpException, DecoderException {
+            final String expectedMessage) throws IOException, DecoderException {
 
         try {
             this.parse(hexString);

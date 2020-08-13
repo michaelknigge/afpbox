@@ -1,7 +1,7 @@
-package de.textmode.afpbox.structuredfield;
+package de.textmode.afpbox.triplet;
 
 /*
- * Copyright 2019 Michael Knigge
+ * Copyright 2020 Michael Knigge
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,20 +16,18 @@ package de.textmode.afpbox.structuredfield;
  * limitations under the License.
  */
 
-import de.textmode.afpbox.io.AfpDataInputStream;
-
 /**
- * The {@link FaultyStructuredField} is a {@link StructuredField} that can not be parsed
- * because it is unknown or contains errors.
+ * The {@link UnknownTriplet} is created for all Triplets we don't know (or
+ * currently don't support).
  */
-public class FaultyStructuredField extends StructuredFieldBase {
+public final class UnknownTriplet extends Triplet {
 
     /**
-     * Constructs the {@link FaultyStructuredField}.
+     * Constructs the {@link UnknownTriplet}.
      *
-     * @param is the {@link AfpDataInputStream} the Structured Field data is read from.
+     * @param data          the raw data of the Triplet.
      */
-    public FaultyStructuredField(final AfpDataInputStream is) {
-        super(is.readRemainingBytes());
+    public UnknownTriplet(final byte[] data) {
+        super(data);
     }
 }

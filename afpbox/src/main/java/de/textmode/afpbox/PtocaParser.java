@@ -52,7 +52,6 @@ public final class PtocaParser {
         final AfpDataInputStream reader = new AfpDataInputStream(data);
         int codePointsOffset = -1;
         int codePointsLength = 0;
-        //final ByteArrayOutputStream bufferedCodePoints = new ByteArrayOutputStream();
 
         while (reader.bytesAvailable() > 0) {
 
