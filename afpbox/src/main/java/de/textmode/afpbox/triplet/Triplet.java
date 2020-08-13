@@ -30,26 +30,26 @@ public abstract class Triplet {
     /**
      * The constructor just stores the raw data of the Triplet.
      *
-     * @param data the raw data of the Structured Field
+     * @param rawData the raw data of the Structured Field
      */
-    public Triplet(final byte[] data) {
-        this.data = data;
+    public Triplet(final byte[] rawData) {
+        this.data = rawData;
     }
 
     /**
      * The constructor just stores the raw data of the Triplet.
      *
-     * @param data the raw data of the Structured Field.
+     * @param rawData the raw data of the Structured Field.
      * @param expectedLength complete expected length of the Triplet.
      *
      * @throws AfpException if the raw data has not the expected length.
      */
-    public Triplet(final byte[] data, final int expectedLength) throws AfpException {
-        this.data = data;
+    public Triplet(final byte[] rawData, final int expectedLength) throws AfpException {
+        this.data = rawData;
 
-        if (data.length != expectedLength) {
+        if (rawData.length != expectedLength) {
             throw new AfpException(
-                    "Triplet X'" + Integer.toHexString(data[1] & 0xFF) + "' has invalid length of "
+                    "Triplet X'" + Integer.toHexString(rawData[1] & 0xFF) + "' has invalid length of "
                     + this.getData().length + " bytes (expected " + expectedLength + " bytes).");
         }
     }
