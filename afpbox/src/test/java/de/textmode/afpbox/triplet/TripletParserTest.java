@@ -18,6 +18,9 @@ package de.textmode.afpbox.triplet;
 
 import java.util.List;
 
+/**
+ * Unit-Tests for the class {@link TripletParser}.
+ */
 public final class TripletParserTest extends TripletTest {
 
     /**

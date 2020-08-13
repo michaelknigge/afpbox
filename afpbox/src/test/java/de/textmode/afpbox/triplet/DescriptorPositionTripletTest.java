@@ -16,6 +16,9 @@ package de.textmode.afpbox.triplet;
  * limitations under the License.
  */
 
+/**
+ * Unit-Tests for the class {@link DescriptorPositionTriplet}.
+ */
 public final class DescriptorPositionTripletTest extends TripletTest<DescriptorPositionTriplet> {
 
     /**

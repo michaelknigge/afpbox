@@ -16,6 +16,9 @@ package de.textmode.afpbox.triplet;
  * limitations under the License.
  */
 
+/**
+ * Unit-Tests for the class {@link CommentTriplet}.
+ */
 public final class CommentTripletTest extends TripletTest<CommentTriplet> {
 
     /**
