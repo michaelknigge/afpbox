@@ -77,7 +77,8 @@ public final class TripletFactory {
 //        case TripletIdentifier.OBJECT_OFFSET:
 //        case TripletIdentifier.FONT_HORIZONTAL_SCALE_FACTOR:
 //        case TripletIdentifier.OBJECT_COUNT:
-//        case TripletIdentifier.OBJECT_DATE_AND_TIME_STAMP:
+        case TripletIdentifier.LOCAL_DATE_AND_TIME_STAMP:
+            return new LocalDateAndTimeStampTriplet(data);
         case TripletIdentifier.COMMENT:
             return new CommentTriplet(data);
 //        case TripletIdentifier.MEDIUM_ORIENTATION:

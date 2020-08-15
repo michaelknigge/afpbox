@@ -153,9 +153,9 @@ public final class TripletIdentifier {
     public static final int OBJECT_COUNT = 0x5E;
 
     /**
-     * Object Date and Time Stamp.
+     * Local Date and Time Stamp.
      */
-    public static final int OBJECT_DATE_AND_TIME_STAMP = 0x62;
+    public static final int LOCAL_DATE_AND_TIME_STAMP = 0x62;
 
     /**
      * Comment.

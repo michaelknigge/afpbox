@@ -223,7 +223,7 @@ TLE    | X'D3A090' | Tag Logical Element                    | :x:
 
 # Triplets
 The following table shows the Triplets and the current status of the corresponding support of the Triplet 
-(*"supported"* means that afobox can parse the Triplet and create a specific Java object for it).
+(*"supported"* means that afpbox can parse the Triplet and create a specific Java object for it).
 
 ID    | Name                                                | Supported
 ------|-----------------------------------------------------|-------------------
@@ -254,7 +254,7 @@ X'9A' | Image Resolution                                    | :x:
 X'73' | IMM Insertion (Retired)                             | :x:
 X'9D' | Keep Group Together                                 | :x:
 X'27' | Line Data Object Position Migration (Retired)       | :x:
-X'62' | Local Date and Time Stamp                           | :x:
+X'62' | Local Date and Time Stamp                           | :white_check_mark:
 X'8C' | Locale Selector                                     | :x:
 X'04' | Mapping Option                                      | :x:
 X'45' | Media Eject Control                                 | :x:
