@@ -50,7 +50,7 @@ public abstract class Triplet {
 
         if (rawData.length != expectedLength) {
             throw new AfpException(String.format(
-                    "Triplet X'%1$03X' has invalid length of %2$d bytes (expected %3$d bytes).",
+                    "Triplet X'%1$02X' has invalid length of %2$d bytes (expected %3$d bytes).",
                     ByteUtils.toUnsignedByte(rawData, 1),
                     this.getData().length,
                     expectedLength));

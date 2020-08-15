@@ -84,7 +84,8 @@ public final class TripletFactory {
 //        case TripletIdentifier.RESOURCE_OBJECT_INCLUDE:
 //        case TripletIdentifier.PRESENTATION_SPACE_RESET_MIXING:
 //        case TripletIdentifier.PRESENTATION_SPACE_MIXING_RULE:
-//        case TripletIdentifier.UNIVERSAL_DATE_AND_TIME_STAMP:
+        case TripletIdentifier.UNIVERSAL_DATE_AND_TIME_STAMP:
+            return new UniversalDateAndTimeStampTriplet(data);
 //        case TripletIdentifier.TONER_SAVER:
 //        case TripletIdentifier.COLOR_FIDELITY:
 //        case TripletIdentifier.FONT_FIDELITY:

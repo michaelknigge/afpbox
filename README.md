@@ -292,7 +292,7 @@ X'86' | Text Fidelity                                       | :x:
 X'1D' | Text Orientation (Retired)                          | :x:
 X'74' | Toner Saver                                         | :x:
 X'FF' | Triplet Extender                                    | :x:
-X'72' | Universal Date and Time Stamp                       | :x:
+X'72' | Universal Date and Time Stamp                       | :white_check_mark:
 X'8E' | UP3i Finishing Operation                            | :x:
 
 
