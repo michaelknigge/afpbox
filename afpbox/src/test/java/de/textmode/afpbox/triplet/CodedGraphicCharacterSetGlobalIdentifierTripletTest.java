@@ -30,7 +30,7 @@ public final class CodedGraphicCharacterSetGlobalIdentifierTripletTest
                 "Triplet X'01' has invalid length of 5 bytes (expected 6 bytes).");
 
         this.parseAndExpectFailure("07010203040506",
-                "Triplet X'01' has invalid length of 5 bytes (expected 6 bytes).");
+                "Triplet X'01' has invalid length of 7 bytes (expected 6 bytes).");
     }
 
     /**
