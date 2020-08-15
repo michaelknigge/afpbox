@@ -232,7 +232,7 @@ X'80' | Attribute Qualifier                                 | :x:
 X'36' | Attribute Value                                     | :x:
 X'26' | Character Rotation                                  | :x:
 X'96' | CMR Tag Fidelity                                    | :x:
-X'01' | Coded Graphic Character Set Global ID               | :x:
+X'01' | Coded Graphic Character Set Global ID               | :white_check_mark:
 X'75' | Color Fidelity                                      | :x:
 X'91' | Color Management Resource Descriptor                | :x:
 X'4E' | Color Specification                                 | :x:
@@ -251,9 +251,9 @@ X'5D' | Font Horizontal Scale Factor                        | :x:
 X'84' | Font Resolution and Metric Technology               | :x:
 X'02' | Fully Qualified Name                                | :x:
 X'9A' | Image Resolution                                    | :x:
-X'73' | IMM Insertion (R)                                   | :x:
+X'73' | IMM Insertion (Retired)                             | :x:
 X'9D' | Keep Group Together                                 | :x:
-X'27' | Line Data Object Position Migration (R)             | :x:
+X'27' | Line Data Object Position Migration (Retired)       | :x:
 X'62' | Local Date and Time Stamp                           | :x:
 X'8C' | Locale Selector                                     | :x:
 X'04' | Mapping Option                                      | :x:
@@ -267,16 +267,16 @@ X'4B' | Object Area Measurement Units                       | :x:
 X'4C' | Object Area Size                                    | :x:
 X'57' | Object Byte Extent                                  | :x:
 X'2D' | Object Byte Offset                                  | :x:
-X'63' | Object Checksum (R)                                 | :x:
+X'63' | Object Checksum (Retired)                           | :x:
 X'10' | Object Classification                               | :x:
 X'9C' | Object Container Presentation Space Size            | :x:
 X'5E' | Object Count                                        | :x:
-X'21' | Object Function Set Specification (R)               | :x:
+X'21' | Object Function Set Specification (Retired)         | :x:
 X'5A' | Object Offset                                       | :x:
-X'64' | Object Origin Identifier (R)                        | :x:
+X'64' | Object Origin Identifier (Retired)                  | :x:
 X'59' | Object Structured Field Extent                      | :x:
 X'58' | Object Structured Field Offset                      | :x:
-X'46' | Page Overlay Conditional Processing (R)             | :x:
+X'46' | Page Overlay Conditional Processing (Retired)       | :x:
 X'81' | Page Position Information                           | :x:
 X'82' | Parameter Value                                     | :x:
 X'83' | Presentation Control                                | :x:
@@ -287,9 +287,9 @@ X'24' | Resource Local ID                                   | :x:
 X'6C' | Resource Object Include                             | :x:
 X'21' | Resource Object Type                                | :x:
 X'25' | Resource Section Number                             | :white_check_mark:
-X'47' | Resource Usage Attribute (R)                        | :x:
+X'47' | Resource Usage Attribute (Retired)                  | :x:
 X'86' | Text Fidelity                                       | :x:
-X'1D' | Text Orientation (R)                                | :x:
+X'1D' | Text Orientation (Retired)                          | :x:
 X'74' | Toner Saver                                         | :x:
 X'FF' | Triplet Extender                                    | :x:
 X'72' | Universal Date and Time Stamp                       | :x:

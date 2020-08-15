@@ -44,7 +44,8 @@ public final class TripletFactory {
         // from an int... overkill... So we just use a switch-case which is pretty fast at runtime...
 
         switch (tripletId) {
-//        case TripletIdentifier.CODED_GRAPHIC_CHARACTER_SET_GLOBAL_IDENTIFIER:
+        case TripletIdentifier.CODED_GRAPHIC_CHARACTER_SET_GLOBAL_IDENTIFIER:
+            return new CodedGraphicCharacterSetGlobalIdentifierTriplet(data);
 //        case TripletIdentifier.FULLY_QUALIFIED_NAME:
 //        case TripletIdentifier.MAPPING_OPTION:
 //        case TripletIdentifier.OBJECT_CLASSIFICATION:
