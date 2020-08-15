@@ -32,13 +32,7 @@ public final class CommentTriplet extends Triplet {
      * @throws AfpException if the triplet has not the expected length.
      */
     public CommentTriplet(final byte[] data) throws AfpException {
-        super(data);
-
-        if (data.length < 3) {
-            throw new AfpException(
-                    "Triplet X'" + Integer.toHexString(data[1] & 0xFF) + "' has invalid length of "
-                    + this.getData().length + " bytes (expected at least 3 bytes).");
-        }
+        super(data, 3, 254);
     }
 
     /**

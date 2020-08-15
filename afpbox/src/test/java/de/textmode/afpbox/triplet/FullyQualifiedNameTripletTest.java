@@ -17,29 +17,27 @@ package de.textmode.afpbox.triplet;
  */
 
 /**
- * Unit-Tests for the class {@link CommentTriplet}.
+ * Unit-Tests for the class {@link FullyQualifiedNameTriplet}.
  */
-public final class CommentTripletTest extends TripletTest<CommentTriplet> {
+public final class FullyQualifiedNameTripletTest extends TripletTest<FullyQualifiedNameTriplet> {
 
     /**
      * Checks if a faulty Triplet is determined.
      */
     public void testFaulty() throws Exception {
-        this.parseAndExpectFailure("0265",
-                "Triplet X'65' has invalid length of 2 bytes (expected 3 to 254 bytes).");
+        this.parseAndExpectFailure("030240",
+                "Triplet X'02' has invalid length of 3 bytes (expected 5 to 254 bytes).");
     }
 
     /**
      * Checks some correct Triplets.
      */
     public void testHappyFlow() throws Exception {
-        final byte[] t1 = this.parseSingle("036540").getComment();
-        assertEquals(1, t1.length);
-        assertEquals(0x40, t1[0]);
-
-        final byte[] t2 = this.parseSingle("0465F1F2").getComment();
-        assertEquals(2, t2.length);
-        assertEquals(0xF1, t2[0] & 0xFF);
-        assertEquals(0xF2, t2[1] & 0xFF);
+        final FullyQualifiedNameTriplet t1 = this.parseSingle("07028500010203");
+        assertEquals(0x85, t1.getFullyQualifiedNameType());
+        assertEquals(0x00, t1.getFullyQualifiedNameFormat());
+        assertEquals(0x01, t1.getFullyQualifiedName()[0]);
+        assertEquals(0x02, t1.getFullyQualifiedName()[1]);
+        assertEquals(0x03, t1.getFullyQualifiedName()[2]);
     }
 }

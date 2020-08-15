@@ -58,6 +58,28 @@ public abstract class Triplet {
     }
 
     /**
+     * The constructor just stores the raw data of the Triplet.
+     *
+     * @param rawData the raw data of the Structured Field.
+     * @param minLength minimum expected length of the Triplet.
+     * @param maxLength maximum expected length of the Triplet.
+     *
+     * @throws AfpException if the raw data has not the expected length.
+     */
+    public Triplet(final byte[] rawData, final int minLength, final int maxLength) throws AfpException {
+        this.data = rawData;
+
+        if (rawData.length < minLength || rawData.length > maxLength) {
+            throw new AfpException(String.format(
+                    "Triplet X'%1$02X' has invalid length of %2$d bytes (expected %3$d to %4$d bytes).",
+                    ByteUtils.toUnsignedByte(rawData, 1),
+                    this.getData().length,
+                    minLength,
+                    maxLength));
+        }
+    }
+
+    /**
      * Returns the raw data of the Triplet.
      *
      * @return the data of the Triplet

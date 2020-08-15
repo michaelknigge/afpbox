@@ -249,7 +249,7 @@ X'1F' | Font Descriptor Specification                       | :x:
 X'78' | Font Fidelity                                       | :x:
 X'5D' | Font Horizontal Scale Factor                        | :x:
 X'84' | Font Resolution and Metric Technology               | :x:
-X'02' | Fully Qualified Name                                | :x:
+X'02' | Fully Qualified Name                                | :white_check_mark:
 X'9A' | Image Resolution                                    | :x:
 X'73' | IMM Insertion (Retired)                             | :x:
 X'9D' | Keep Group Together                                 | :x:

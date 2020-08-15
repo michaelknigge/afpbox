@@ -46,7 +46,8 @@ public final class TripletFactory {
         switch (tripletId) {
         case TripletIdentifier.CODED_GRAPHIC_CHARACTER_SET_GLOBAL_IDENTIFIER:
             return new CodedGraphicCharacterSetGlobalIdentifierTriplet(data);
-//        case TripletIdentifier.FULLY_QUALIFIED_NAME:
+        case TripletIdentifier.FULLY_QUALIFIED_NAME:
+            return new FullyQualifiedNameTriplet(data);
 //        case TripletIdentifier.MAPPING_OPTION:
 //        case TripletIdentifier.OBJECT_CLASSIFICATION:
 //        case TripletIdentifier.MODCA_INTERCHANGE_SET:
