@@ -1,7 +1,5 @@
 package de.textmode.afpbox.triplet;
 
-import de.textmode.afpbox.AfpException;
-
 /*
  * Copyright 2020 Michael Knigge
  *
@@ -17,6 +15,9 @@ import de.textmode.afpbox.AfpException;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import de.textmode.afpbox.AfpException;
+import de.textmode.afpbox.common.ByteUtils;
 
 /**
  * The Descriptor Position triplet is used to associate an Object Area Position structured field
@@ -41,6 +42,6 @@ public final class DescriptorPositionTriplet extends Triplet {
      * @return identifier of the Object Area Position structured field.
      */
     public short getDescriptorPositionId() {
-        return this.getData()[2];
+        return (short) ByteUtils.toByte(this.getData(), 2);
     }
 }

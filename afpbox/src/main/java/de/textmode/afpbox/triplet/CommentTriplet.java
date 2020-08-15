@@ -1,7 +1,5 @@
 package de.textmode.afpbox.triplet;
 
-import de.textmode.afpbox.AfpException;
-
 /*
  * Copyright 2020 Michael Knigge
  *
@@ -17,6 +15,8 @@ import de.textmode.afpbox.AfpException;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import de.textmode.afpbox.AfpException;
 
 /**
  * The {@link CommentTriplet} is used to include comments for documentation
