@@ -86,6 +86,10 @@ subprojects {
         toolVersion = '7.1'
         configFile = rootProject.file('config/checkstyle.xml')
     }
+	
+    spotbugs {
+        excludeFilter =  rootProject.file('config/excludeFilter.xml')
+    }
 
     tasks.named('jacocoTestReport') {
         reports {

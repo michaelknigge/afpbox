@@ -19,6 +19,10 @@ package de.textmode.afpbox.ptoca;
 import de.textmode.afpbox.AfpException;
 import de.textmode.afpbox.common.ByteUtils;
 
+/**
+ * The End Suppression control sequence marks the end of a string of presentation text suppressed from the
+ * visible output.
+ */
 public final class EndSuppression extends PtocaControlSequence {
 
     /**

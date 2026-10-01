@@ -1,5 +1,8 @@
 package de.textmode.afpbox.common;
 
+/**
+ * This class {@link TripletIdentifier} contains just one static integer for every known Triplet.
+ */
 public final class TripletIdentifier {
 
     /**

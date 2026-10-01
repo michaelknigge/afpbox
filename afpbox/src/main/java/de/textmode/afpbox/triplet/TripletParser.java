@@ -35,6 +35,8 @@ public final class TripletParser {
      *
      * @param data     the Triplets
      *
+     * @return a {@link List} of all parsed {@link Triplet Triplet(s)}.
+     *
      * @throws AfpException if a Triplet is corrupt / truncated.
      */
     public static List<Triplet> parse(final byte[] data) throws AfpException {
