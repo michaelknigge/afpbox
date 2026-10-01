@@ -38,7 +38,7 @@ nexusPublishing {
 
 
 group = 'de.textmode.afpbox'
-version = '0.4'
+version = '0.5'
 
 
 subprojects {

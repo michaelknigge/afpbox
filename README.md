@@ -14,7 +14,7 @@ Because afpbox is available at [Maven Central](https://central.sonatype.com/arti
 <dependency>
   <groupId>de.textmode.afpbox</groupId>
   <artifactId>afpbox</artifactId>
-  <version>0.4</version>
+  <version>0.5</version>
   <type>pom</type>
 </dependency>
 ```
@@ -23,7 +23,7 @@ If you use Gradle, add this:
 
 ```
 dependencies {
-    implementation 'de.textmode.afpbox:afpbox:0.4'
+    implementation 'de.textmode.afpbox:afpbox:0.5'
 }
 ```
 
