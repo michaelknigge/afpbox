@@ -8,7 +8,7 @@ Java library for parsing [AFP](https://en.wikipedia.org/wiki/Advanced_Function_P
 afpbox has no runtime dependencies on other libraries. This was a design decision and will (hopefully) never change.
 
 # Usage
-Because afpbox is available at [jcenter](https://bintray.com/bintray/jcenter) it is very easy to use afpbox in your projects. At first, add afpbox to your build file. If you use Maven, add the following to your build file:
+Because afpbox is available at [Maven Central](https://central.sonatype.com/artifact/de.textmode.afpbox/afpbox), it is very easy to use afpbox in your projects. At first, add afpbox to your build file. If you use Maven, add the following to your build file:
 
 ```xml
 <dependency>
@@ -23,7 +23,7 @@ If you use Gradle, add this:
 
 ```
 dependencies {
-    compile 'de.textmode.afpbox:afpbox:0.4'
+    implementation 'de.textmode.afpbox:afpbox:0.4'
 }
 ```
 
